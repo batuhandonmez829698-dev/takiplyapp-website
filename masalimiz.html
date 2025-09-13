@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masalımız - Aşk Hikayenizi Dijitalleştirin 💕</title>
+    <meta name="description" content="Sevgiliniz için özel aşk sayfası oluşturun. Normal, Standart ve Premium paketlerle aşk hikayenizi dijitalleştirin.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff6b9d;
+            --secondary-pink: #ff8fab;
+            --accent-pink: #ffc2d1;
+            --light-pink: #ffe0e6;
+            --dark-pink: #d63384;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--primary-pink);
+            font-size: 2rem;
+            animation: floatHeart 6s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 6s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 8s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 7s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; animation-duration: 9s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; animation-duration: 6.5s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 7.5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 1.5s; animation-duration: 8.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 2.5s; animation-duration: 6.8s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 3.5s; animation-duration: 7.2s; }
+        .heart:nth-child(10) { left: 15%; animation-delay: 4.5s; animation-duration: 8.2s; }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+                transform: translateY(90vh) translateX(-10px) rotate(10deg) scale(0.8);
+            }
+            50% {
+                transform: translateY(50vh) translateX(20px) rotate(-10deg) scale(1);
+            }
+            90% {
+                transform: translateY(10vh) translateX(-15px) rotate(5deg) scale(0.8);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0px) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .title-line-1 {
+            display: block;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .title-line-2 {
+            display: block;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate 0.5s;
+            font-size: 4rem;
+        }
+
+        .title-line-3 {
+            display: block;
+            background: var(--gradient-5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate 1s;
+            font-size: 3.5rem;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px rgba(255, 107, 157, 0.3);
+            }
+            100% {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 30px rgba(255, 107, 157, 0.6);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--white);
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-2);
+            color: var(--white);
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+            margin: 20px 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .package-card.popular {
+            border: 3px solid var(--gold);
+            transform: scale(1.05);
+        }
+
+        .package-card.popular::before {
+            content: "EN POPÜLER";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .package-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .package-card:nth-child(1) .package-icon {
+            background: var(--gradient-1);
+        }
+
+        .package-card:nth-child(2) .package-icon {
+            background: var(--gradient-2);
+        }
+
+        .package-card:nth-child(3) .package-icon {
+            background: var(--gradient-3);
+        }
+
+        .package-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-pink);
+            margin-bottom: 20px;
+        }
+
+        .package-price span {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .package-features li {
+            padding: 10px 0;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .package-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-pink);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .package-button {
+            background: var(--gradient-2);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .package-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .package-card.popular .package-button {
+            background: var(--gradient-3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item i {
+            color: var(--primary-pink);
+            font-size: 1.5rem;
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3.5rem;
+            }
+
+            .title-line-2 {
+                font-size: 3rem;
+            }
+
+            .title-line-3 {
+                font-size: 2.5rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.popular {
+                transform: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts">
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content" data-aos="fade-down" data-aos-duration="2000">
+                <h1 class="main-title">
+                    <span class="title-line-1">Masalımız</span>
+                    <span class="title-line-2">Aşk Hikayenizi</span>
+                    <span class="title-line-3">Dijitalleştirin</span>
+                </h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-delay="500">
+                    Sevgiliniz için özel aşk sayfası oluşturun 💕
+                </p>
+                <a href="#packages" class="cta-button" data-aos="zoom-in" data-aos-delay="1000">
+                    <i class="fas fa-heart"></i>
+                    Hemen Başlayın
+                </a>
+                <a href="#contact" class="cta-button" data-aos="zoom-in" data-aos-delay="1200">
+                    <i class="fas fa-phone"></i>
+                    İletişime Geçin
+                </a>
+            </div>
+        </header>
+
+        <!-- Packages Section -->
+        <section id="packages" class="packages">
+            <h2 class="section-title" data-aos="fade-up">Paketlerimiz</h2>
+            <div class="packages-grid">
+                <!-- Normal Paket -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="package-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="package-title">Normal Paket</h3>
+                    <div class="package-price">299₺<span>/sayfa</span></div>
+                    <ul class="package-features">
+                        <li>Basit aşk sayfası</li>
+                        <li>Kişiselleştirilmiş metin</li>
+                        <li>Mobil uyumlu tasarım</li>
+                        <li>5 fotoğraf yükleme</li>
+                        <li>1 gün teslimat</li>
+                        <li>WhatsApp desteği</li>
+                    </ul>
+                    <button class="package-button">Sipariş Ver</button>
+                </div>
+
+                <!-- Standart Paket -->
+                <div class="package-card popular" data-aos="fade-up" data-aos-delay="400">
+                    <div class="package-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="package-title">Standart Paket</h3>
+                    <div class="package-price">499₺<span>/sayfa</span></div>
+                    <ul class="package-features">
+                        <li>Animasyonlu aşk sayfası</li>
+                        <li>Kişiselleştirilmiş metin</li>
+                        <li>Mobil uyumlu tasarım</li>
+                        <li>10 fotoğraf yükleme</li>
+                        <li>Müzik ekleme</li>
+                        <li>Özel renk seçimi</li>
+                        <li>2 gün teslimat</li>
+                        <li>7/24 WhatsApp desteği</li>
+                    </ul>
+                    <button class="package-button">Sipariş Ver</button>
+                </div>
+
+                <!-- Premium Paket -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="package-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="package-title">Premium Paket</h3>
+                    <div class="package-price">699₺<span>/sayfa</span></div>
+                    <ul class="package-features">
+                        <li>Ultra modern aşk sayfası</li>
+                        <li>Kişiselleştirilmiş metin</li>
+                        <li>Mobil uyumlu tasarım</li>
+                        <li>Sınırsız fotoğraf</li>
+                        <li>Müzik + video ekleme</li>
+                        <li>Özel tasarım</li>
+                        <li>Kişisel domain</li>
+                        <li>3D animasyonlar</li>
+                        <li>1 gün teslimat</li>
+                        <li>7/24 WhatsApp desteği</li>
+                        <li>Ücretsiz güncelleme</li>
+                    </ul>
+                    <button class="package-button">Sipariş Ver</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title" data-aos="fade-up">Neden Bizi Seçmelisiniz?</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Hızlı Teslimat</h3>
+                    <p class="feature-description">1-3 gün içinde aşk sayfanız hazır!</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">💕</div>
+                    <h3 class="feature-title">Kişiselleştirilmiş</h3>
+                    <p class="feature-description">Her sayfa özel olarak tasarlanır</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Mobil Uyumlu</h3>
+                    <p class="feature-description">Tüm cihazlarda mükemmel görünüm</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Modern Tasarım</h3>
+                    <p class="feature-description">En güncel tasarım trendleri</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Güvenli</h3>
+                    <p class="feature-description">Verileriniz güvende</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">7/24 Destek</h3>
+                    <p class="feature-description">WhatsApp ile anında destek</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2 class="contact-title" data-aos="fade-up">İletişim</h2>
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+90 546 849 98 15</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>takiplyapp@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <span>@takiplyapp</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>7/24 Hizmet</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+
+        // Initialize AOS
+        AOS.init({
+            duration: 2000,
+            once: true,
+            offset: 100
+        });
+
+        // Add click effect to hearts
+        document.addEventListener('DOMContentLoaded', function() {
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach(heart => {
+                heart.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.5) rotate(360deg)';
+                    this.style.color = '#ffd700';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1) rotate(0deg)';
+                        this.style.color = 'var(--primary-pink)';
+                    }, 500);
+                });
+            });
+
+            // Add sparkle effect on click
+            document.addEventListener('click', function(e) {
+                createSparkle(e.clientX, e.clientY);
+            });
+
+            // Create random sparkles
+            setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createSparkle(x, y);
+            }, 3000);
+
+            // Package button clicks
+            const packageButtons = document.querySelectorAll('.package-button');
+            packageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const packageName = this.closest('.package-card').querySelector('.package-title').textContent;
+                    const message = `Merhaba! ${packageName} paketini seçmek istiyorum. Detaylı bilgi alabilir miyim?`;
+                    const whatsappUrl = `https://wa.me/905468499815?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            });
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkleAnimation 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // Add sparkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleAnimation {
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1) rotate(180deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
