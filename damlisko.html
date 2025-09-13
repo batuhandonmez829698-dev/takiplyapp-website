@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damliskoyu'nu Çok Seviyorum ❤️</title>
+    <meta name="description" content="Damliskoyu için özel aşk sayfası - 15.12.2021'den beri birlikteyiz">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff6b9d;
+            --secondary-pink: #ff8fab;
+            --accent-pink: #ffc2d1;
+            --light-pink: #ffe0e6;
+            --dark-pink: #d63384;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--primary-pink);
+            font-size: 2rem;
+            animation: floatHeart 6s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 6s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 8s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 7s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; animation-duration: 9s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; animation-duration: 6.5s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 7.5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 1.5s; animation-duration: 8.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 2.5s; animation-duration: 6.8s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 3.5s; animation-duration: 7.2s; }
+        .heart:nth-child(10) { left: 15%; animation-delay: 4.5s; animation-duration: 8.2s; }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+                transform: translateY(90vh) translateX(-10px) rotate(10deg) scale(0.8);
+            }
+            50% {
+                transform: translateY(50vh) translateX(20px) rotate(-10deg) scale(1);
+            }
+            90% {
+                transform: translateY(10vh) translateX(-15px) rotate(5deg) scale(0.8);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0px) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px rgba(255, 107, 157, 0.3);
+            }
+            100% {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 30px rgba(255, 107, 157, 0.6);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Love Story Section */
+        .love-story {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .story-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .story-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            color: var(--primary-pink);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 50px 0;
+        }
+
+        .timeline-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-pink);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-pink);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Love Quotes */
+        .quotes-section {
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            color: var(--white);
+            padding: 50px;
+            border-radius: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .quotes-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            margin: 50px 0;
+        }
+
+        .gallery-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-pink);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-placeholder {
+            background: linear-gradient(135deg, var(--accent-pink), var(--light-pink));
+            border-radius: 20px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-pink);
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        /* Love Counter */
+        .love-counter {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .counter-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--primary-pink);
+            margin-bottom: 30px;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .counter-item {
+            text-align: center;
+        }
+
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+        }
+
+        .footer-heart {
+            color: var(--primary-pink);
+            font-size: 1.5rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .love-story {
+                padding: 30px 20px;
+            }
+
+            .story-title {
+                font-size: 2rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .quotes-section {
+                padding: 30px 20px;
+            }
+
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .love-story {
+                padding: 20px 15px;
+            }
+
+            .quotes-section {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts">
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">Damliskoyu'nu Çok Seviyorum</h1>
+            <p class="subtitle">Sen benim kalbimin en güzel yerindesin</p>
+            <div class="date-badge">
+                <i class="fas fa-heart"></i>
+                15.12.2021'den beri birlikteyiz
+            </div>
+        </header>
+
+        <!-- Love Story -->
+        <section class="love-story">
+            <h2 class="story-title">Bizim Aşk Hikayemiz</h2>
+            <p class="story-content">
+                <span class="highlight">Damliskoyu</span>, sen benim hayatımın en güzel hediyesisin. 
+                <span class="highlight">15 Aralık 2021</span> tarihinde seninle tanıştığımız o gün, 
+                hayatımın en mutlu günü oldu. O günden beri her gün seni daha çok seviyorum.
+            </p>
+            <p class="story-content">
+                Sen benim <span class="highlight">kalbimin sahibi</span>, <span class="highlight">ruhumun eşi</span> 
+                ve <span class="highlight">hayatımın anlamısın</span>. Seninle geçirdiğim her an, 
+                her saniye benim için çok değerli.
+            </p>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline">
+            <h2 class="timeline-title">Aşk Yolculuğumuz</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>15 Aralık 2021</h3>
+                    <p>İlk tanıştığımız gün - Hayatımın en güzel başlangıcı</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-kiss"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>İlk Öpücük</h3>
+                    <p>O anki hislerimi hiç unutamam - Kalbimde kelebekler uçuyordu</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Sevgili Olduk</h3>
+                    <p>Resmi olarak birlikte olduğumuz o mutlu gün</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-calendar-heart"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Her Gün</h3>
+                    <p>Seni daha çok seviyorum - Bu aşk hiç bitmesin</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Quotes -->
+        <section class="quotes-section">
+            <h2 class="quotes-title">Senin İçin Söylediklerim</h2>
+            
+            <div class="quote">
+                "Damliskoyu, sen benim kalbimin en güzel melodisisin. 
+                Seninle olduğumda dünya duruyor, zaman duruyor, sadece sen ve ben kalıyoruz."
+            </div>
+            <div class="quote-author">- Kalbimden gelen ses</div>
+
+            <div class="quote">
+                "Sen benim hayatımın en güzel hediyesisin. 
+                Her gün seni daha çok seviyorum ve bu aşk hiç bitmesin istiyorum."
+            </div>
+            <div class="quote-author">- Sonsuz aşkım</div>
+
+            <div class="quote">
+                "15.12.2021'den beri seninle olmak, 
+                hayatımın en güzel macerası. Sen benim her şeyimsin."
+            </div>
+            <div class="quote-author">- Ebedi sevgim</div>
+        </section>
+
+        <!-- Photo Gallery Placeholder -->
+        <section class="photo-gallery">
+            <h2 class="gallery-title">Güzel Anlarımız</h2>
+            <div class="gallery-grid">
+                <div class="photo-placeholder">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="photo-placeholder">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="photo-placeholder">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <div class="photo-placeholder">
+                    <i class="fas fa-kiss"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Counter -->
+        <section class="love-counter">
+            <h2 class="counter-title">Aşkımızın Sayıları</h2>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <span class="counter-number" id="days-together">0</span>
+                    <div class="counter-label">Gün Birlikte</div>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="hours-together">0</span>
+                    <div class="counter-label">Saat Birlikte</div>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="minutes-together">0</span>
+                    <div class="counter-label">Dakika Birlikte</div>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number">∞</span>
+                    <div class="counter-label">Sevgi</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                <span class="footer-heart">❤️</span>
+                Damliskoyu'nu sonsuza kadar seviyorum
+                <span class="footer-heart">❤️</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                Bu sayfa sadece senin için yapıldı - 15.12.2021'den beri birlikteyiz
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Calculate time together
+        function calculateTimeTogether() {
+            const startDate = new Date('2021-12-15');
+            const now = new Date();
+            const timeDiff = now - startDate;
+            
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            const minutes = Math.floor(timeDiff / (1000 * 60));
+            
+            document.getElementById('days-together').textContent = days;
+            document.getElementById('hours-together').textContent = hours;
+            document.getElementById('minutes-together').textContent = minutes;
+        }
+
+        // Update counter every minute
+        calculateTimeTogether();
+        setInterval(calculateTimeTogether, 60000);
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effect to hearts
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach(heart => {
+                heart.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.5) rotate(360deg)';
+                    this.style.color = '#ffd700';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1) rotate(0deg)';
+                        this.style.color = 'var(--primary-pink)';
+                    }, 500);
+                });
+            });
+
+            // Add hover effect to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(255, 107, 157, 0.1)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.8)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
