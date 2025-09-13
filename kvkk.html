@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVKK Aydınlatma Metni - TakiplyApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gray-50);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-icon img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .legal-content {
+            padding: 8rem 0 4rem;
+            background: var(--gray-50);
+            min-height: 100vh;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .legal-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        .legal-text {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .legal-text h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .legal-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .legal-text p {
+            color: var(--gray-700);
+            margin-bottom: 1.2rem;
+        }
+
+        .legal-text ul {
+            color: var(--gray-700);
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+        }
+
+        .legal-text li {
+            margin-bottom: 0.4rem;
+        }
+
+        .legal-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .legal-text a:hover {
+            text-decoration: underline;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: var(--gray-800);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-600);
+            border-radius: 8px;
+            background: var(--gray-800);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .newsletter-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 4rem 0 2rem;
+            }
+
+            .legal-header h1 {
+                font-size: 2rem;
+            }
+
+            .legal-text {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .legal-text h2 {
+                font-size: 1.3rem;
+            }
+
+            .legal-text h3 {
+                font-size: 1.1rem;
+            }
+
+            .back-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="logo.png" alt="TakiplyApp Logo">
+                        </div>
+                        TakiplyApp
+                    </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- KVKK Content -->
+    <section class="legal-content">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Ana Sayfaya Dön
+            </a>
+            
+            <div class="legal-header">
+                <h1>KVKK Aydınlatma Metni</h1>
+                <p class="last-updated">Son güncelleme: 13 Eylül 2024</p>
+            </div>
+
+            <div class="legal-text">
+                <h2>1. Veri Sorumlusu</h2>
+                <p>Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında, kişisel verilerinizin işlenmesine ilişkin bilgilendirme amacıyla hazırlanmıştır.</p>
+                
+                <p><strong>Veri Sorumlusu:</strong><br>
+                TakiplyApp<br>
+                Adres: Edremit, Balıkesir<br>
+                E-posta: takiplyapp@gmail.com<br>
+                Telefon: +90 546 849 98 15</p>
+
+                <h2>2. Toplanan Kişisel Veriler</h2>
+                <p>Aşağıdaki kategorilerde kişisel verileriniz toplanmaktadır:</p>
+                
+                <h3>2.1 Kimlik Verileri</h3>
+                <ul>
+                    <li>Ad ve soyad</li>
+                    <li>TC kimlik numarası (isteğe bağlı)</li>
+                </ul>
+
+                <h3>2.2 İletişim Verileri</h3>
+                <ul>
+                    <li>E-posta adresi</li>
+                    <li>Telefon numarası</li>
+                    <li>Adres bilgileri</li>
+                </ul>
+
+                <h3>2.3 Müşteri İşlem Verileri</h3>
+                <ul>
+                    <li>Satış kayıtları</li>
+                    <li>Ödeme bilgileri</li>
+                    <li>Fatura bilgileri</li>
+                    <li>Müşteri notları</li>
+                </ul>
+
+                <h3>2.4 İş Süreçleri Verileri</h3>
+                <ul>
+                    <li>Uygulama kullanım verileri</li>
+                    <li>Log kayıtları</li>
+                    <li>IP adresi</li>
+                    <li>Çerez verileri</li>
+                </ul>
+
+                <h2>3. Kişisel Verilerin İşlenme Amaçları</h2>
+                <p>Kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
+                <ul>
+                    <li>Uygulama hizmetlerinin sunulması</li>
+                    <li>Müşteri ilişkilerinin yönetimi</li>
+                    <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+                    <li>Hizmet kalitesinin artırılması</li>
+                    <li>Güvenlik önlemlerinin alınması</li>
+                    <li>İstatistiksel analizlerin yapılması</li>
+                </ul>
+
+                <h2>4. Kişisel Verilerin İşlenme Hukuki Sebepleri</h2>
+                <p>Kişisel verileriniz aşağıdaki hukuki sebeplerle işlenmektedir:</p>
+                <ul>
+                    <li><strong>Açık rızanız</strong> (KVKK m. 5/2-a)</li>
+                    <li><strong>Sözleşmenin kurulması veya ifası</strong> (KVKK m. 5/2-c)</li>
+                    <li><strong>Yasal yükümlülüğün yerine getirilmesi</strong> (KVKK m. 5/2-e)</li>
+                    <li><strong>Meşru menfaatlerimiz</strong> (KVKK m. 5/2-f)</li>
+                </ul>
+
+                <h2>5. Kişisel Verilerin Paylaşılması</h2>
+                <p>Kişisel verileriniz, yukarıda belirtilen amaçlar doğrultusunda aşağıdaki kişi ve kuruluşlarla paylaşılabilir:</p>
+                <ul>
+                    <li><strong>Hizmet sağlayıcılarımız:</strong> Sunucu hizmetleri, e-posta hizmetleri</li>
+                    <li><strong>Yasal merciler:</strong> Mahkeme kararları, savcılık talepleri</li>
+                    <li><strong>İş ortaklarımız:</strong> Açık rızanız ile sınırlı olarak</li>
+                    <li><strong>Muhasebe firmaları:</strong> Yasal yükümlülükler kapsamında</li>
+                </ul>
+
+                <h2>6. Kişisel Verilerin Saklanma Süresi</h2>
+                <p>Kişisel verileriniz, işlenme amacının gerektirdiği süre boyunca saklanır:</p>
+                <ul>
+                    <li><strong>Müşteri verileri:</strong> Hesap aktif olduğu sürece + 10 yıl</li>
+                    <li><strong>Muhasebe kayıtları:</strong> 10 yıl (VUK m. 253)</li>
+                    <li><strong>E-posta kayıtları:</strong> 3 yıl</li>
+                    <li><strong>Log kayıtları:</strong> 1 yıl</li>
+                </ul>
+
+                <h2>7. Haklarınız</h2>
+                <p>KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:</p>
+                <ul>
+                    <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+                    <li>İşlenen verileriniz hakkında bilgi talep etme</li>
+                    <li>İşlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+                    <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
+                    <li>Eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme</li>
+                    <li>Belirtilen şartlar çerçevesinde verilerin silinmesini veya yok edilmesini isteme</li>
+                    <li>Düzeltme, silme veya yok edilme işlemlerinin üçüncü kişilere bildirilmesini isteme</li>
+                    <li>İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme</li>
+                    <li>Kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması halinde zararın giderilmesini talep etme</li>
+                </ul>
+
+                <h2>8. Başvuru Yöntemi</h2>
+                <p>Yukarıda belirtilen haklarınızı kullanmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:</p>
+                <ul>
+                    <li><strong>E-posta:</strong> takiplyapp@gmail.com</li>
+                    <li><strong>Telefon:</strong> +90 546 849 98 15</li>
+                    <li><strong>Posta:</strong> Edremit, Balıkesir</li>
+                </ul>
+
+                <h2>9. Veri Güvenliği</h2>
+                <p>Kişisel verilerinizin güvenliğini sağlamak için aşağıdaki teknik ve idari tedbirler alınmaktadır:</p>
+                <ul>
+                    <li><strong>Teknik Tedbirler:</strong> SSL şifreleme, güvenli sunucular, erişim kontrolleri</li>
+                    <li><strong>İdari Tedbirler:</strong> Personel eğitimleri, gizlilik sözleşmeleri, yetki matrisi</li>
+                    <li><strong>Fiziksel Tedbirler:</strong> Sunucu güvenliği, ofis güvenliği</li>
+                    <li><strong>Düzenli Denetimler:</strong> Güvenlik testleri, penetrasyon testleri</li>
+                </ul>
+
+                <h2>10. Çerezler (Cookies)</h2>
+                <p>Web sitemizde kullanıcı deneyimini geliştirmek için çerezler kullanılmaktadır:</p>
+                <ul>
+                    <li><strong>Zorunlu Çerezler:</strong> Site işlevselliği için gerekli</li>
+                    <li><strong>Analitik Çerezler:</strong> Site kullanım istatistikleri</li>
+                    <li><strong>Fonksiyonel Çerezler:</strong> Kullanıcı tercihlerini hatırlama</li>
+                </ul>
+
+                <h2>11. Değişiklikler</h2>
+                <p>Bu aydınlatma metni gerektiğinde güncellenebilir. Önemli değişiklikler durumunda kullanıcılarımız e-posta yoluyla bilgilendirilir.</p>
+
+                <h2>12. İletişim</h2>
+                <p>KVKK kapsamındaki talepleriniz için:</p>
+                <ul>
+                    <li><strong>E-posta:</strong> takiplyapp@gmail.com</li>
+                    <li><strong>Telefon:</strong> +90 546 849 98 15</li>
+                    <li><strong>Adres:</strong> Edremit, Balıkesir</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TakiplyApp</h4>
+                    <p>İşletmenizi dijitalleştirin, satışlarınızı artırın. Modern mobil uygulama ile işinizi kolaylaştırın.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <p>+90 546 849 98 15</p>
+                    <p>takiplyapp@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/takiplyapp" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/takiplyapp" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Mail Abone Ol</h4>
+                    <p>Güncellemelerden haberdar olun</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="E-posta adresiniz" class="newsletter-input">
+                        <button class="newsletter-btn">Abone Ol</button>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Yasal</h4>
+                    <p><a href="privacy.html">Gizlilik Politikası</a></p>
+                    <p><a href="terms.html">Kullanım Şartları</a></p>
+                    <p><a href="kvkk.html">KVKK Aydınlatma Metni</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TakiplyApp. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
