@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Damla için özel aşk sayfası - Premium Paket">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Damla'ya Aşkım - Premium Paket</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #ff6b9d;
+            --secondary-pink: #ff8fab;
+            --accent-pink: #ffc1cc;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --gradient-1: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            --gradient-2: linear-gradient(135deg, #ff8fab 0%, #ffc1cc 100%);
+            --gradient-3: linear-gradient(135deg, #ffc1cc 0%, #ffd700 100%);
+            --gradient-4: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 0;
+            color: var(--white);
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Sacramento', cursive;
+            font-size: 6rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, #ff6b9d, #ffd700, #ff6b9d, #ff8fab);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .date-badge {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 20px 40px;
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .love-meter {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .meter-label {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            animation: fillAnimation 4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meter-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes fillAnimation {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .meter-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+            backdrop-filter: blur(25px);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .love-story {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: var(--primary-pink);
+            margin-bottom: 40px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .story-content {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight {
+            color: var(--primary-pink);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(255, 107, 157, 0.3);
+        }
+
+        .timeline {
+            margin: 50px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-1);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--gradient-2);
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.4);
+        }
+
+        .timeline-date {
+            background: var(--primary-pink);
+            color: var(--white);
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            margin: 0 30px;
+            min-width: 150px;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .photo-placeholder {
+            background: var(--gradient-2);
+            border-radius: 20px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: photoShimmer 3s infinite;
+        }
+
+        @keyframes photoShimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 60px rgba(255, 107, 157, 0.5);
+        }
+
+        .photo-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .love-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--gradient-1);
+            border-radius: 25px;
+            color: var(--white);
+            animation: bounce 3s infinite;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: statShimmer 2s infinite;
+        }
+
+        @keyframes statShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.4);
+        }
+
+        .stat-item:nth-child(2) { animation-delay: 0.3s; }
+        .stat-item:nth-child(3) { animation-delay: 0.6s; }
+        .stat-item:nth-child(4) { animation-delay: 0.9s; }
+        .stat-item:nth-child(5) { animation-delay: 1.2s; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .example-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(255, 107, 157, 0.06);
+            pointer-events: none;
+            z-index: 0;
+            animation: rotateWatermark 30s linear infinite;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 0 40px rgba(255, 107, 157, 0.15);
+        }
+
+        @keyframes rotateWatermark {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 107, 157, 0.7);
+            font-size: 30px;
+            animation: float 10s infinite linear;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 1s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 3s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 2.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 4.5s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-pink);
+            border: none;
+            padding: 18px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            z-index: 1000;
+            font-size: 1.1rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .sparkle {
+            position: absolute;
+            color: var(--gold);
+            font-size: 20px;
+            animation: sparkleAnimation 1s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes sparkleAnimation {
+            0% {
+                opacity: 1;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 4.5rem;
+            }
+            
+            .content-section {
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+            
+            .photos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+                margin-left: 40px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            .timeline-date {
+                margin: 0 0 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">💖</div>
+    </div>
+
+    <div class="example-watermark">ÖRNEKTİR</div>
+
+    <a href="masalimiz.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Geri Dön
+    </a>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title" data-aos="fade-down" data-aos-duration="3000">Damla'ya Sonsuz Aşkım</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="800">Sen benim kalbimin en güzel yerindesin 💕</p>
+            <div class="date-badge" data-aos="zoom-in" data-aos-delay="1200">
+                <i class="fas fa-heart"></i>
+                <span>15.12.2021'den beri birlikteyiz</span>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="love-meter" data-aos="fade-up" data-aos-delay="1800">
+                <div class="meter-label">Aşk Seviyemiz</div>
+                <div class="meter-bar">
+                    <div class="meter-fill" style="width: 100%"></div>
+                </div>
+                <div class="meter-text">∞ Sonsuz Aşk</div>
+            </div>
+        </header>
+
+        <section class="content-section love-story" data-aos="fade-up" data-aos-duration="3000">
+            <h2 class="story-title">💕 Bizim Aşk Hikayemiz 💕</h2>
+            <p class="story-content" data-aos="fade-right" data-aos-delay="500">
+                <span class="highlight">Damla</span>, sen benim hayatımın en güzel hediyesisin. 
+                <span class="highlight">15 Aralık 2021</span> tarihinde seninle tanıştığımız o gün, 
+                hayatımın en mutlu günü oldu. O günden beri her gün seni daha çok seviyorum.
+            </p>
+            <p class="story-content" data-aos="fade-left" data-aos-delay="800">
+                Sen benim <span class="highlight">kalbimin sahibi</span>, <span class="highlight">ruhumun eşi</span> 
+                ve <span class="highlight">hayatımın anlamısın</span>. Seninle geçirdiğim her an, 
+                her saniye benim için çok değerli.
+            </p>
+        </section>
+
+        <section class="content-section timeline" data-aos="fade-up" data-aos-delay="1000">
+            <h2 class="story-title">📅 Aşk Hikayemizin Zaman Çizelgesi</h2>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="timeline-date">15.12.2021</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">İlk Buluşma</div>
+                    <div class="timeline-description">Seninle ilk kez tanıştığımız o büyülü gün. Gözlerinle ilk kez karşılaştığımda kalbim durdu.</div>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                <div class="timeline-date">25.12.2021</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">İlk Öpücük</div>
+                    <div class="timeline-description">Noel gecesi ilk kez öpüştüğümüz an. O an dünya durdu ve sadece sen vardın.</div>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
+                <div class="timeline-date">14.02.2022</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Sevgililer Günü</div>
+                    <div class="timeline-description">İlk Sevgililer Günümüzü birlikte kutladık. Senin için hazırladığım sürprizlerin yüzündeki mutluluğu unutamam.</div>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="800">
+                <div class="timeline-date">15.12.2022</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">1. Yıl Dönümü</div>
+                    <div class="timeline-description">Bir yıldır birlikte olduğumuzu kutladık. Her gün seni daha çok sevdiğimi fark ettim.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" data-aos="fade-up" data-aos-delay="1200">
+            <h2 class="story-title">📸 Anılarımız</h2>
+            <div class="photos-grid">
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-camera"></i><br>
+                    İlk Buluşma
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-camera"></i><br>
+                    Sevgililer Günü
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-camera"></i><br>
+                    Tatil Anıları
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-camera"></i><br>
+                    Doğum Günü
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-camera"></i><br>
+                    Yıl Dönümü
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-camera"></i><br>
+                    Günlük Anlar
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fas fa-camera"></i><br>
+                    Özel Günler
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="800">
+                    <i class="fas fa-camera"></i><br>
+                    Mutlu Anlar
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="900">
+                    <i class="fas fa-camera"></i><br>
+                    Gelecek Planları
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="1000">
+                    <i class="fas fa-camera"></i><br>
+                    Sonsuz Aşk
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="1100">
+                    <i class="fas fa-camera"></i><br>
+                    Hayallerimiz
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="1200">
+                    <i class="fas fa-camera"></i><br>
+                    Mutluluk Anları
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="1300">
+                    <i class="fas fa-camera"></i><br>
+                    Sonsuzluk
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" data-aos="fade-up" data-aos-delay="1400">
+            <h2 class="story-title">💖 Aşk İstatistiklerimiz</h2>
+            <div class="love-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">💖</div>
+                    <div class="stat-text">Sonsuz Aşk</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🌟</div>
+                    <div class="stat-text">Mükemmel Uyum</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">💫</div>
+                    <div class="stat-text">Büyülü Anlar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-text">Ortak Hedefler</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🌈</div>
+                    <div class="stat-text">Renkli Gelecek</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 3000,
+            once: true,
+            offset: 100
+        });
+
+        // Add click effect to hearts
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('heart')) {
+                e.target.style.animation = 'none';
+                e.target.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    e.target.style.animation = 'float 10s infinite linear';
+                    e.target.style.transform = 'scale(1)';
+                }, 200);
+            }
+        });
+
+        // Create sparkle effect on click
+        document.addEventListener('click', function(e) {
+            createSparkle(e.clientX, e.clientY);
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // Random sparkles
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            createSparkle(x, y);
+        }, 2000);
+
+        // Timeline hover effects
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

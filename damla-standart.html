@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Damla için özel aşk sayfası - Standart Paket">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Damla'ya Aşkım - Standart Paket</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-pink: #ff6b9d;
+            --secondary-pink: #ff8fab;
+            --accent-pink: #ffc1cc;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --gradient-1: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            --gradient-2: linear-gradient(135deg, #ff8fab 0%, #ffc1cc 100%);
+            --gradient-3: linear-gradient(135deg, #ffc1cc 0%, #ffd700 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--white);
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ff6b9d, #ffd700, #ff6b9d);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .date-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 15px 30px;
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .love-meter {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .meter-label {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            animation: fillAnimation 3s ease-in-out;
+        }
+
+        @keyframes fillAnimation {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        .meter-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .love-story {
+            text-align: center;
+        }
+
+        .story-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--primary-pink);
+            margin-bottom: 30px;
+        }
+
+        .story-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: var(--primary-pink);
+            font-weight: 600;
+        }
+
+        .timeline {
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--gradient-2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .timeline-date {
+            background: var(--primary-pink);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-right: 20px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .photo-placeholder {
+            background: var(--gradient-2);
+            border-radius: 15px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .love-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            color: var(--white);
+            animation: bounce 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.4s; }
+        .stat-item:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .example-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(255, 107, 157, 0.08);
+            pointer-events: none;
+            z-index: 0;
+            animation: rotateWatermark 25s linear infinite;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.2);
+        }
+
+        @keyframes rotateWatermark {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 107, 157, 0.6);
+            font-size: 25px;
+            animation: float 8s infinite linear;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 1s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 3s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 2.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 4.5s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-pink);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 4rem;
+            }
+            
+            .content-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .photos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-date {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+        <div class="heart">💖</div>
+    </div>
+
+    <div class="example-watermark">ÖRNEKTİR</div>
+
+    <a href="masalimiz.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Geri Dön
+    </a>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title" data-aos="fade-down" data-aos-duration="2000">Damla'ya Sonsuz Aşkım</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="500">Sen benim kalbimin en güzel yerindesin 💕</p>
+            <div class="date-badge" data-aos="zoom-in" data-aos-delay="1000">
+                <i class="fas fa-heart"></i>
+                <span>15.12.2021'den beri birlikteyiz</span>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="love-meter" data-aos="fade-up" data-aos-delay="1500">
+                <div class="meter-label">Aşk Seviyemiz</div>
+                <div class="meter-bar">
+                    <div class="meter-fill" style="width: 100%"></div>
+                </div>
+                <div class="meter-text">∞ Sonsuz Aşk</div>
+            </div>
+        </header>
+
+        <section class="content-section love-story" data-aos="fade-up" data-aos-duration="2000">
+            <h2 class="story-title">💕 Bizim Aşk Hikayemiz 💕</h2>
+            <p class="story-content" data-aos="fade-right" data-aos-delay="300">
+                <span class="highlight">Damla</span>, sen benim hayatımın en güzel hediyesisin. 
+                <span class="highlight">15 Aralık 2021</span> tarihinde seninle tanıştığımız o gün, 
+                hayatımın en mutlu günü oldu. O günden beri her gün seni daha çok seviyorum.
+            </p>
+            <p class="story-content" data-aos="fade-left" data-aos-delay="600">
+                Sen benim <span class="highlight">kalbimin sahibi</span>, <span class="highlight">ruhumun eşi</span> 
+                ve <span class="highlight">hayatımın anlamısın</span>. Seninle geçirdiğim her an, 
+                her saniye benim için çok değerli.
+            </p>
+        </section>
+
+        <section class="content-section timeline" data-aos="fade-up" data-aos-delay="800">
+            <h2 class="story-title">📅 Aşk Hikayemizin Zaman Çizelgesi</h2>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-date">15.12.2021</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">İlk Buluşma</div>
+                    <div class="timeline-description">Seninle ilk kez tanıştığımız o büyülü gün</div>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-date">25.12.2021</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">İlk Öpücük</div>
+                    <div class="timeline-description">Noel gecesi ilk kez öpüştüğümüz an</div>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                <div class="timeline-date">14.02.2022</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Sevgililer Günü</div>
+                    <div class="timeline-description">İlk Sevgililer Günümüzü birlikte kutladık</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" data-aos="fade-up" data-aos-delay="1000">
+            <h2 class="story-title">📸 Anılarımız</h2>
+            <div class="photos-grid">
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-camera"></i><br>
+                    İlk Buluşma
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-camera"></i><br>
+                    Sevgililer Günü
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-camera"></i><br>
+                    Tatil Anıları
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-camera"></i><br>
+                    Doğum Günü
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-camera"></i><br>
+                    Yıl Dönümü
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-camera"></i><br>
+                    Günlük Anlar
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fas fa-camera"></i><br>
+                    Özel Günler
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="800">
+                    <i class="fas fa-camera"></i><br>
+                    Mutlu Anlar
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="900">
+                    <i class="fas fa-camera"></i><br>
+                    Gelecek Planları
+                </div>
+                <div class="photo-placeholder" data-aos="zoom-in" data-aos-delay="1000">
+                    <i class="fas fa-camera"></i><br>
+                    Sonsuz Aşk
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" data-aos="fade-up" data-aos-delay="1200">
+            <h2 class="story-title">💖 Aşk İstatistiklerimiz</h2>
+            <div class="love-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">💖</div>
+                    <div class="stat-text">Sonsuz Aşk</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🌟</div>
+                    <div class="stat-text">Mükemmel Uyum</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">💫</div>
+                    <div class="stat-text">Büyülü Anlar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-text">Hedeflerimiz</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 2000,
+            once: true,
+            offset: 100
+        });
+
+        // Add click effect to hearts
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('heart')) {
+                e.target.style.animation = 'none';
+                e.target.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    e.target.style.animation = 'float 8s infinite linear';
+                    e.target.style.transform = 'scale(1)';
+                }, 200);
+            }
+        });
+
+        // Timeline hover effects
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -342,6 +342,33 @@
             box-shadow: 0 10px 25px rgba(255, 107, 157, 0.4);
         }
 
+        .example-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-pink);
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-pink);
+        }
+
+        .example-link:hover {
+            background: var(--primary-pink);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .example-link i {
+            font-size: 0.9rem;
+        }
+
         .package-card.popular .package-button {
             background: var(--gradient-3);
         }
@@ -516,6 +543,10 @@
                         <li>WhatsApp desteği</li>
                     </ul>
                     <button class="package-button">Sipariş Ver</button>
+                    <a href="damla-normal.html" class="example-link" target="_blank">
+                        <i class="fas fa-eye"></i>
+                        Örnek Sayfayı Gör
+                    </a>
                 </div>
 
                 <!-- Standart Paket -->
@@ -536,6 +567,10 @@
                         <li>7/24 WhatsApp desteği</li>
                     </ul>
                     <button class="package-button">Sipariş Ver</button>
+                    <a href="damla-standart.html" class="example-link" target="_blank">
+                        <i class="fas fa-eye"></i>
+                        Örnek Sayfayı Gör
+                    </a>
                 </div>
 
                 <!-- Premium Paket -->
@@ -559,6 +594,10 @@
                         <li>Ücretsiz güncelleme</li>
                     </ul>
                     <button class="package-button">Sipariş Ver</button>
+                    <a href="damla-premium.html" class="example-link" target="_blank">
+                        <i class="fas fa-eye"></i>
+                        Örnek Sayfayı Gör
+                    </a>
                 </div>
             </div>
         </section>
