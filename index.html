@@ -1,0 +1,2987 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TakiplyApp - Modern İş Uygulaması</title>
+    <meta name="description" content="TakiplyApp ile işletmenizi dijitalleştirin, satışlarınızı artırın. Profesyonel satış takibi, müşteri yönetimi ve ödeme takibi için modern mobil uygulama.">
+    <meta name="keywords" content="satış takibi, müşteri yönetimi, iş uygulaması, mobil uygulama, takiplyapp, satış yönetimi">
+    <meta name="author" content="TakiplyApp">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="TakiplyApp - Modern İş Uygulaması">
+    <meta property="og:description" content="Profesyonel satış takibi için modern çözüm. İşletmenizi dijitalleştirin, satışlarınızı artırın.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://takiplyapp.com">
+    <meta property="og:site_name" content="TakiplyApp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TakiplyApp - Modern İş Uygulaması">
+    <meta name="twitter:description" content="Profesyonel satış takibi için modern çözüm.">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="Turkish">
+    <meta name="geo.region" content="TR-BA">
+    <meta name="geo.placename" content="Balıkesir">
+    <meta name="geo.position" content="39.5833;27.4333">
+    <meta name="ICBM" content="39.5833, 27.4333">
+    <meta name="DC.title" content="TakiplyApp - Profesyonel Satış Takibi">
+    <meta name="DC.creator" content="TakiplyApp">
+    <meta name="DC.subject" content="Satış Takibi, Müşteri Yönetimi, İş Uygulaması">
+    <meta name="DC.description" content="Modern iş uygulaması ile satışlarınızı artırın, müşterilerinizi yönetin">
+    <meta name="DC.publisher" content="TakiplyApp">
+    <meta name="DC.contributor" content="TakiplyApp">
+    <meta name="DC.date" content="2025-01-27">
+    <meta name="DC.type" content="Software">
+    <meta name="DC.format" content="text/html">
+    <meta name="DC.identifier" content="https://takiplyapp.com">
+    <meta name="DC.source" content="https://takiplyapp.com">
+    <meta name="DC.language" content="tr">
+    <meta name="DC.relation" content="https://takiplyapp.com">
+    <meta name="DC.coverage" content="Turkey">
+    <meta name="DC.rights" content="Copyright TakiplyApp">
+    
+    <!-- Mobile & App Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="msapplication-TileImage" content="/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="TakiplyApp">
+    <meta name="application-name" content="TakiplyApp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Performance & Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data:;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="google-site-verification" content="your-google-verification-code">
+    <meta name="yandex-verification" content="your-yandex-verification-code">
+    
+    <link rel="canonical" href="https://takiplyapp.com">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo-container {
+            position: relative;
+        }
+
+        .logo-arrow {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            transition: transform 0.3s ease;
+            margin-left: 0.5rem;
+        }
+
+        .logo:hover .logo-arrow {
+            transform: rotate(180deg);
+        }
+
+        .logo-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            padding: 0.5rem;
+            min-width: 200px;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .logo-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dropdown-item:hover {
+            background: var(--gray-50);
+        }
+
+        .dropdown-item:nth-child(2) {
+            cursor: default;
+            opacity: 0.6;
+        }
+
+        .dropdown-item:nth-child(2):hover {
+            background: transparent;
+        }
+
+        .dropdown-item:nth-child(2) .dropdown-icon {
+            background: var(--gray-400);
+        }
+
+        .dropdown-item:nth-child(2) .dropdown-title {
+            color: var(--gray-500);
+        }
+
+        .dropdown-item:nth-child(2) .dropdown-desc {
+            color: var(--gray-400);
+        }
+
+        /* TakiplyHub özel stilleri */
+        .dropdown-item:nth-child(3) {
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        .dropdown-item:nth-child(3):hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .dropdown-item:nth-child(3):hover .dropdown-icon {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .dropdown-item:nth-child(3):hover .dropdown-title,
+        .dropdown-item:nth-child(3):hover .dropdown-desc {
+            color: var(--white);
+        }
+
+        .dropdown-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .dropdown-text {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .dropdown-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .bold-text {
+            font-weight: 800;
+        }
+
+        .dropdown-desc {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        .rotating-clock {
+            animation: rotateClock 2s linear infinite;
+        }
+
+        @keyframes rotateClock {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Floating Currency Symbols */
+        .floating-currencies {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgba(99, 102, 241, 0.5);
+            animation: floatCurrency 3s linear infinite;
+            user-select: none;
+        }
+
+        .currency-symbol:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 3s; animation-timing-function: ease-in-out; }
+        .currency-symbol:nth-child(2) { left: 20%; animation-delay: 0.2s; animation-duration: 4s; animation-timing-function: ease-in; }
+        .currency-symbol:nth-child(3) { left: 30%; animation-delay: 0.4s; animation-duration: 2.5s; animation-timing-function: ease-out; }
+        .currency-symbol:nth-child(4) { left: 40%; animation-delay: 0.6s; animation-duration: 3.5s; animation-timing-function: ease-in-out; }
+        .currency-symbol:nth-child(5) { left: 50%; animation-delay: 0.8s; animation-duration: 2.8s; animation-timing-function: ease-in; }
+        .currency-symbol:nth-child(6) { left: 60%; animation-delay: 1s; animation-duration: 4.2s; animation-timing-function: ease-out; }
+        .currency-symbol:nth-child(7) { left: 70%; animation-delay: 1.2s; animation-duration: 3.2s; animation-timing-function: ease-in-out; }
+        .currency-symbol:nth-child(8) { left: 80%; animation-delay: 1.4s; animation-duration: 2.7s; animation-timing-function: ease-in; }
+        .currency-symbol:nth-child(9) { left: 90%; animation-delay: 1.6s; animation-duration: 3.8s; animation-timing-function: ease-out; }
+        .currency-symbol:nth-child(10) { left: 15%; animation-delay: 1.8s; animation-duration: 2.9s; animation-timing-function: ease-in-out; }
+        .currency-symbol:nth-child(11) { left: 25%; animation-delay: 2s; animation-duration: 4.1s; animation-timing-function: ease-in; }
+        .currency-symbol:nth-child(12) { left: 35%; animation-delay: 2.2s; animation-duration: 2.6s; animation-timing-function: ease-out; }
+        .currency-symbol:nth-child(13) { left: 45%; animation-delay: 2.4s; animation-duration: 3.7s; animation-timing-function: ease-in-out; }
+        .currency-symbol:nth-child(14) { left: 55%; animation-delay: 2.6s; animation-duration: 3.1s; animation-timing-function: ease-in; }
+        .currency-symbol:nth-child(15) { left: 65%; animation-delay: 2.8s; animation-duration: 4.3s; animation-timing-function: ease-out; }
+
+        @keyframes floatCurrency {
+            0% {
+                transform: translateY(-100px) translateX(0px) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+                transform: translateY(10vh) translateX(-20px) rotate(45deg) scale(1);
+            }
+            25% {
+                transform: translateY(25vh) translateX(30px) rotate(-30deg) scale(1.1);
+            }
+            40% {
+                transform: translateY(40vh) translateX(-15px) rotate(60deg) scale(0.9);
+            }
+            55% {
+                transform: translateY(55vh) translateX(25px) rotate(-45deg) scale(1.2);
+            }
+            70% {
+                transform: translateY(70vh) translateX(-30px) rotate(90deg) scale(0.8);
+            }
+            85% {
+                transform: translateY(85vh) translateX(20px) rotate(-60deg) scale(1.1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(100vh) translateX(0px) rotate(180deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: all 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .loading-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .loading-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.6);
+            border-radius: 50%;
+            animation: floatParticle 6s linear infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 70%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+        .loading-container {
+            text-align: center;
+            color: var(--white);
+            z-index: 2;
+        }
+
+        .loading-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .loading-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-icon-inner {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            animation: iconPulse 2s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .loading-icon-inner img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .loading-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 2s linear infinite;
+        }
+
+        .loading-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .loading-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--white), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        .loading-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .loading-progress-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .loading-progress {
+            width: 300px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            animation: loadingProgress 3s ease-in-out;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+        .loading-percentage {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--white);
+            min-width: 40px;
+        }
+
+        .loading-status {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            animation: statusBlink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+            }
+        }
+
+        @keyframes loadingProgress {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes statusBlink {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.6);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-15deg) scale(0.7);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .rotate-in.visible {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            padding: 8rem 0;
+            background: var(--gray-50);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Form Styles */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .feedback-form {
+                gap: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+
+            .submit-btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* FAQ Styles */
+        .faq {
+            padding: 8rem 0;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--gray-50);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .faq-question {
+            padding: 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--gray-50);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 2rem;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Mobile FAQ Styles */
+        @media (max-width: 768px) {
+            .faq {
+                padding: 6rem 0;
+            }
+
+            .faq-question {
+                padding: 1.5rem;
+            }
+
+            .faq-question h3 {
+                font-size: 1.1rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            color: var(--primary);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .back-to-top {
+            animation: bounceUp 2s infinite;
+        }
+
+        .arrow-up {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 12px solid currentColor;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-up::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: -6px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 8px solid currentColor;
+        }
+
+        @keyframes bounceUp {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-3px);
+            }
+            60% {
+                transform: translateY(-2px);
+            }
+        }
+
+        /* Mobile Back to Top */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Haber Akışı Stilleri */
+        .news-ticker {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: scroll-left 60s linear infinite;
+            white-space: nowrap;
+            gap: 60px;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            min-width: max-content;
+        }
+
+        .ticker-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .ticker-icon {
+            font-size: 1.2rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .ticker-text {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* Animasyon */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Hover'da duraklatma */
+        .news-ticker:hover .ticker-content {
+            animation-play-state: paused;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ticker-content {
+                gap: 40px;
+            }
+            
+            .ticker-item {
+                font-size: 0.85rem;
+                padding: 6px 15px;
+                gap: 8px;
+            }
+            
+            .ticker-icon {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ticker-content {
+                gap: 30px;
+            }
+            
+            .ticker-item {
+                font-size: 0.8rem;
+                padding: 5px 12px;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 10001;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-icon img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .btn:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .btn:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .btn:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+
+        .btn i {
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 0;
+            background: var(--gray-50);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .user-sector {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .rating {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-content {
+            color: var(--gray-700);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-800);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-600);
+            border-radius: 8px;
+            background: var(--gray-800);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--gray-400);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .newsletter-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Legal Pages */
+        .legal-content {
+            padding: 6rem 0 4rem;
+            background: var(--gray-50);
+            min-height: 100vh;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .legal-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        .legal-text {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .legal-text h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .legal-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .legal-text p {
+            color: var(--gray-700);
+            margin-bottom: 1.2rem;
+        }
+
+        .legal-text ul {
+            color: var(--gray-700);
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+        }
+
+        .legal-text li {
+            margin-bottom: 0.4rem;
+        }
+
+        .legal-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .legal-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 4rem 0 2rem;
+            }
+
+            .legal-header h1 {
+                font-size: 2rem;
+            }
+
+            .legal-text {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .legal-text h2 {
+                font-size: 1.3rem;
+            }
+
+            .legal-text h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            padding: 1.5rem;
+            max-width: 400px;
+            z-index: 10000;
+            display: none;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .cookie-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cookie-text h4 {
+            color: var(--gray-900);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cookie-text p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn.accept {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .cookie-btn.accept:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .cookie-btn.reject {
+            background: var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .cookie-btn.reject:hover {
+            background: var(--gray-200);
+        }
+
+        .cookie-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cookie-link:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cookie-consent {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                padding: 1.25rem;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cookie-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Target Sectors */
+        .target-sectors {
+            padding: 5rem 0;
+            background: var(--gray-50);
+        }
+
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-auto-rows: auto;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sector-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            align-self: start;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .sector-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .sector-card[data-sector="devre-tatil"] .sector-icon {
+            background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+        }
+
+        .sector-card[data-sector="emlak"] .sector-icon {
+            background: linear-gradient(135deg, #10B981, #059669);
+        }
+
+        .sector-card[data-sector="otomotiv"] .sector-icon {
+            background: linear-gradient(135deg, #EF4444, #DC2626);
+        }
+
+        .sector-card[data-sector="finansal"] .sector-icon {
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+        }
+
+        .sector-card[data-sector="telekom"] .sector-icon {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+        }
+
+        .sector-card[data-sector="b2b"] .sector-icon {
+            background: linear-gradient(135deg, #06B6D4, #0891B2);
+        }
+
+        .sector-card[data-sector="eticaret"] .sector-icon {
+            background: linear-gradient(135deg, #EC4899, #DB2777);
+        }
+
+        .sector-card[data-sector="danismanlik"] .sector-icon {
+            background: linear-gradient(135deg, #6366F1, #4F46E5);
+        }
+
+        .sector-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .sector-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .sector-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .sector-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .sector-detail {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .sector-detail.active {
+            display: block;
+        }
+
+
+        .sector-analysis {
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .sector-benefits,
+        .sector-challenges,
+        .sector-solutions {
+            margin-bottom: 1.5rem;
+        }
+
+        .sector-benefits h4,
+        .sector-challenges h4,
+        .sector-solutions h4 {
+            color: var(--gray-900);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .sector-benefits ul,
+        .sector-challenges ul,
+        .sector-solutions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sector-benefits li,
+        .sector-challenges li,
+        .sector-solutions li {
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .sector-benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        .sector-challenges li::before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .sector-solutions li::before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .currency-symbol {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .currency-symbol {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+            .features-grid,
+            .testimonials-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .header-content {
+                padding: 0.75rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .web-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .features,
+            .testimonials,
+            .contact {
+                padding: 4rem 0;
+            }
+
+            .feature-card,
+            .testimonial-card,
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .feature-icon,
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .user-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" class="logo" id="logoTrigger">
+                        <div class="logo-icon">
+                            <img src="logo.png" alt="TakiplyApp Logo">
+                        </div>
+                        TakiplyApp
+                        <i class="fas fa-chevron-down logo-arrow"></i>
+                    </a>
+                    
+                    <div class="logo-dropdown" id="logoDropdown">
+                        <div class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">TakiplyApp</span>
+                                <span class="dropdown-desc">Satış Takip</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-icon">
+                                <i class="fas fa-clock rotating-clock"></i>
+                            </div>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">TakiplyStore</span>
+                                <span class="dropdown-desc">Alışveriş Merkezi</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-item" onclick="window.location.href='hub.html'">
+                            <div class="dropdown-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">TakiplyHub</span>
+                                <span class="dropdown-desc">Özellik Merkezi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Profesyonel Satış Takibi</h1>
+                <p class="fade-in">Satışlarınızı etkili şekilde takip edin, ödemelerinizi yönetin ve işinizi büyütün. Modern, güvenilir ve kullanıcı odaklı mobil deneyim.</p>
+                <div class="hero-buttons fade-in">
+                    <a href="#" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        İndir
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Tanıtım Videosu İzle
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title fade-in">Özellikler</h2>
+            <p class="section-subtitle fade-in">İşinizi kolaylaştıran güçlü özellikler</p>
+            <div class="features-grid">
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Satış Takibi</h3>
+                    <p class="feature-description">Tüm satışlarınızı detaylı olarak takip edin ve analiz edin. Grafikler ve raporlarla işinizi büyütün.</p>
+                </div>
+                <div class="feature-card scale-in">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.996 2.996 0 0 0 17.06 7H15c-.8 0-1.54.37-2.01.99L12 9l-.99-1.01A2.996 2.996 0 0 0 9 7H6.94c-1.34 0-2.51.9-2.9 2.37L1.5 16H4v6h2v-6h2v6h2v-6h2v6h2v-6h2v6h2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Müşteri Yönetimi</h3>
+                    <p class="feature-description">Müşteri bilgilerinizi düzenleyin, geçmiş satışları görüntüleyin ve notlar ekleyin.</p>
+                </div>
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Ödeme Yönetimi</h3>
+                    <p class="feature-description">Ödemeleri takip edin, vadesi geçen ödemeleri görüntüleyin ve hatırlatıcılar oluşturun.</p>
+                </div>
+                <div class="feature-card rotate-in">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Notlar</h3>
+                    <p class="feature-description">Müşterileriniz ve işleriniz hakkında önemli notlar alın ve düzenleyin.</p>
+                </div>
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Hatırlatıcılar</h3>
+                    <p class="feature-description">Önemli tarihleri ve görevleri hatırlatıcılarla takip edin.</p>
+                </div>
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17 1.01L7 1c-1.1 0-1.99.9-1.99 2v18c0 1.1.89 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Mobil Uyumlu</h3>
+                    <p class="feature-description">Her cihazda mükemmel çalışan responsive tasarım ile her yerden erişim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Kullanıcı Yorumları</h2>
+            <p class="section-subtitle fade-in">Müşterilerimizden gelen gerçek yorumlar</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card slide-in-left">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">B</div>
+                        <div class="user-info">
+                            <h4>Batuhan D.</h4>
+                            <p class="user-sector">Devre Tatil Sektörü</p>
+                        </div>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                    <p class="testimonial-content">"TakiplyApp sayesinde işlerimi çok daha etkili yönetiyorum. Müşteri takibi ve satış analizi artık çok pratik!"</p>
+                </div>
+                <div class="testimonial-card scale-in">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <h4>Ahmet K.</h4>
+                            <p class="user-sector">Restoran Sektörü</p>
+                        </div>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                    <p class="testimonial-content">"Ödeme takibi konusunda büyük yardım sağlıyor. Vadesi geçen ödemeleri etkili şekilde görebiliyorum."</p>
+                </div>
+                <div class="testimonial-card slide-in-right">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">E</div>
+                        <div class="user-info">
+                            <h4>Elif M.</h4>
+                            <p class="user-sector">E-ticaret Sektörü</p>
+                        </div>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                    <p class="testimonial-content">"Mobil uygulama gerçekten oldukça kullanışlı. Her yerden işlerimi takip edebiliyorum."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Sectors Section -->
+    <section class="target-sectors">
+        <div class="container">
+            <h2 class="section-title fade-in">Hedef Sektörler</h2>
+            <p class="section-subtitle fade-in">TakiplyApp hangi sektörlerde fark yaratıyor?</p>
+            <div class="sectors-grid">
+                <div class="sector-card slide-in-left" data-sector="devre-tatil">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">Devre Tatil</h3>
+                    <p class="sector-description">Satış ekipleri ve rezervasyon</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('devre-tatil')" data-sector-id="devre-tatil">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card scale-in" data-sector="emlak">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">Emlak Satış</h3>
+                    <p class="sector-description">Emlak danışmanları</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('emlak')" data-sector-id="emlak">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card slide-in-right" data-sector="otomotiv">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">Otomotiv Satış</h3>
+                    <p class="sector-description">Araç satış ekipleri</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('otomotiv')" data-sector-id="otomotiv">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card rotate-in" data-sector="finansal">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">Finansal Hizmetler</h3>
+                    <p class="sector-description">Banka ve sigorta satış</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('finansal')" data-sector-id="finansal">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card slide-in-left" data-sector="telekom">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">Telekomünikasyon</h3>
+                    <p class="sector-description">Mobil ve internet satış</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('telekom')" data-sector-id="telekom">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card scale-in" data-sector="b2b">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">B2B Satış</h3>
+                    <p class="sector-description">Kurumsal satış ekipleri</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('b2b')" data-sector-id="b2b">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card slide-in-right" data-sector="eticaret">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">E-ticaret</h3>
+                    <p class="sector-description">Online satış ekipleri</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('eticaret')" data-sector-id="eticaret">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="sector-card rotate-in" data-sector="danismanlik">
+                    <div class="sector-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.996 2.996 0 0 0 17.06 7H15c-.8 0-1.54.37-2.01.99L12 9l-.99-1.01A2.996 2.996 0 0 0 9 7H6.94c-1.34 0-2.51.9-2.9 2.37L1.5 16H4v6h2v-6h2v6h2v-6h2v6h2v-6h2v6h2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="sector-title">Satış Danışmanlığı</h3>
+                    <p class="sector-description">Bağımsız satış temsilcileri</p>
+                    <button class="sector-btn" onclick="toggleSectorDetail('danismanlik')" data-sector-id="danismanlik">Detay <i class="fas fa-chevron-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Sıkça Sorulan Sorular</h2>
+            <p class="section-subtitle fade-in">En çok merak edilen sorular ve yanıtları</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>TakiplyApp ücretli mi?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>TakiplyApp aylık ücretli bir uygulamadır. Tüm premium özellikler ve sınırsız kullanım için aylık abonelik gereklidir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Verilerim güvende mi?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, tüm verileriniz KVKK uyumlu olarak şifrelenerek saklanır. Verileriniz sadece sizin erişiminizdedir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Hangi cihazlarda çalışır?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>TakiplyApp iOS cihazlarda çalışır. Android sürümü geliştirme aşamasındadır. Web uygulaması da kısa sürede gelecektir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Verilerimi nasıl yedekleyebilirim?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Verileriniz otomatik olarak bulut sunucularımızda yedeklenir. Ayrıca manuel yedekleme seçenekleri de mevcuttur.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Teknik destek alabilir miyim?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, 7/24 teknik destek hizmetimiz bulunmaktadır. İletişim formundan veya e-posta ile bize ulaşabilirsiniz.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>TakiplyHub nedir?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>TakiplyHub, TakiplyApp kullanıcıları için özel olarak tasarlanan bir web platformudur. Haftalık çekilişler, canlı yayınlar, kullanıcı forumu, AI chat ve çok sayıda gelişmiş özellik ile yakın zamanda hizmetinizde olacak!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Hesabımı nasıl silerim?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Hesap silme işlemi için bizimle iletişime geçmeniz gerekmektedir. İletişim formundan veya e-posta ile bize ulaşarak hesabınızın silinmesini talep edebilirsiniz. Tüm verileriniz KVKK uyumlu olarak silinir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-form">
+        <div class="container">
+            <h2 class="section-title fade-in">İletişim</h2>
+            <p class="section-subtitle fade-in">Bizimle iletişime geçin, sorularınızı yanıtlayalım</p>
+            <div class="form-container">
+                <form class="feedback-form" id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">Adınız Soyadınız</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta Adresiniz</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Konu</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Konu seçiniz</option>
+                            <option value="soru">Genel Soru</option>
+                            <option value="oneri">Öneri</option>
+                            <option value="hata">Hata Bildirimi</option>
+                            <option value="ozellik">Yeni Özellik İsteği</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Mesajınızı buraya yazın..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Gönder
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haber Akışı -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <div class="ticker-item">
+                <span class="ticker-icon">🚀</span>
+                <span class="ticker-text">Web Uygulaması Yakında! Tüm özellikler tarayıcıda</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">🤖</span>
+                <span class="ticker-text">AI Asistan Aktif! Satış stratejilerinizi optimize edin</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">📊</span>
+                <span class="ticker-text">Gelişmiş Analitik Eklendi! Derinlemesine veri analizi</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">👥</span>
+                <span class="ticker-text">Takım Yönetimi Hazır! Ekip çalışması başladı</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">☁️</span>
+                <span class="ticker-text">Bulut Senkronizasyon Aktif! Verileriniz güvende</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">🔗</span>
+                <span class="ticker-text">API Entegrasyonları Hazır! Mevcut araçlarınızla uyumlu</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">⚡</span>
+                <span class="ticker-text">Otomasyon Merkezi Açıldı! İş akışlarınızı otomatikleştirin</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">🔒</span>
+                <span class="ticker-text">Güvenlik Merkezi Aktif! 256-bit şifreleme ile korunuyor</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">📱</span>
+                <span class="ticker-text">Mobil Uygulama Güncellendi! iOS ve Android desteği</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-icon">💬</span>
+                <span class="ticker-text">Canlı Destek 7/24! Uzman ekibimiz yanınızda</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TakiplyApp</h4>
+                    <p>İşletmenizi dijitalleştirin, satışlarınızı artırın. Modern mobil uygulama ile işinizi kolaylaştırın.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <p>Edremit, Balıkesir</p>
+                    <p>+90 546 849 98 15</p>
+                    <p>takiplyapp@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Sosyal Medya</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/takiplyapp" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/takiplyapp" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>E-bülten</h4>
+                    <p>Güncellemelerden haberdar olun</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="E-posta adresiniz" class="newsletter-input">
+                        <button class="newsletter-btn">Abone Ol</button>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Yasal</h4>
+                    <p><a href="privacy.html">Gizlilik Politikası</a></p>
+                    <p><a href="terms.html">Kullanım Şartları</a></p>
+                    <p><a href="kvkk.html">KVKK Aydınlatma Metni</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TakiplyApp, TakiplyHub, TakiplyStore. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-background">
+            <div class="loading-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+        <div class="loading-container">
+            <div class="loading-text">
+                <span class="loading-title">TakiplyApp</span>
+                <span class="loading-subtitle">Satış Takip Uygulaması</span>
+            </div>
+            <div class="loading-progress-container">
+                <div class="loading-progress">
+                    <div class="loading-bar"></div>
+                </div>
+                <div class="loading-percentage">0%</div>
+            </div>
+            <div class="loading-status">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <!-- Floating Currency Symbols -->
+    <div class="floating-currencies">
+        <div class="currency-symbol">₺</div>
+        <div class="currency-symbol">$</div>
+        <div class="currency-symbol">€</div>
+        <div class="currency-symbol">£</div>
+        <div class="currency-symbol">¥</div>
+        <div class="currency-symbol">₺</div>
+        <div class="currency-symbol">$</div>
+        <div class="currency-symbol">€</div>
+        <div class="currency-symbol">£</div>
+        <div class="currency-symbol">¥</div>
+        <div class="currency-symbol">₺</div>
+        <div class="currency-symbol">$</div>
+        <div class="currency-symbol">€</div>
+        <div class="currency-symbol">£</div>
+        <div class="currency-symbol">¥</div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <div class="arrow-up"></div>
+    </button>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>🍪 Çerezler</h4>
+                <p>Web sitemizde size en iyi deneyimi sunabilmek için çerezler kullanıyoruz. Devam ederek çerez kullanımını kabul etmiş olursunuz.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="cookie-btn accept">Kabul Et</button>
+                <button id="rejectCookies" class="cookie-btn reject">Reddet</button>
+                <a href="privacy.html" class="cookie-link">Detaylar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Loading Screen - Only show on first visit
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingBar = document.querySelector('.loading-bar');
+            const loadingPercentage = document.querySelector('.loading-percentage');
+            const loadingStatus = document.querySelector('.loading-status');
+            
+            // Check if user has visited before
+            if (localStorage.getItem('hasVisited')) {
+                loadingScreen.style.display = 'none';
+                return;
+            }
+            
+            let progress = 0;
+            const interval = setInterval(function() {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                
+                loadingBar.style.width = progress + '%';
+                loadingPercentage.textContent = Math.round(progress) + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loadingStatus.textContent = 'Tamamlandı!';
+                    
+                    setTimeout(function() {
+                        loadingScreen.classList.add('hidden');
+                        
+                        // Remove from DOM after animation
+                        setTimeout(function() {
+                            loadingScreen.style.display = 'none';
+                            localStorage.setItem('hasVisited', 'true');
+                        }, 800);
+                    }, 500);
+                }
+            }, 100);
+        });
+
+        // Logo Dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoTrigger = document.getElementById('logoTrigger');
+            const logoDropdown = document.getElementById('logoDropdown');
+
+            logoTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                logoDropdown.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!logoTrigger.contains(e.target) && !logoDropdown.contains(e.target)) {
+                    logoDropdown.classList.remove('show');
+                }
+            });
+        });
+
+        // Cookie Consent
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const rejectBtn = document.getElementById('rejectCookies');
+
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieConsent.style.display = 'block';
+            }
+
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.style.display = 'none';
+                // Enable analytics and other cookies here
+            });
+
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.style.display = 'none';
+                // Disable non-essential cookies here
+            });
+        });
+
+        // Scroll Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .rotate-in');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Feedback Form
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedbackForm');
+            
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(feedbackForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                
+                // Show success message
+                const submitBtn = feedbackForm.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Gönderildi!';
+                submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Reset form
+                feedbackForm.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(function() {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
+                }, 3000);
+                
+                // Here you would typically send the data to a server
+                console.log('Form submitted:', { name, email, subject, message });
+            });
+        });
+
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/Hide Back to Top Button & Update Progress Bar
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            const scrollProgressBar = document.getElementById('scrollProgressBar');
+            
+            // Back to Top Button
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+            
+            // Scroll Progress Bar
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgressBar.style.width = scrollPercent + '%';
+        });
+
+        // Haber Akışı JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const ticker = document.querySelector('.news-ticker');
+            const tickerContent = document.querySelector('.ticker-content');
+            
+            if (ticker && tickerContent) {
+                // Hover'da duraklatma
+                ticker.addEventListener('mouseenter', function() {
+                    tickerContent.style.animationPlayState = 'paused';
+                });
+                
+                ticker.addEventListener('mouseleave', function() {
+                    tickerContent.style.animationPlayState = 'running';
+                });
+                
+                // Tıklama ile duraklatma/devam ettirme
+                ticker.addEventListener('click', function() {
+                    if (tickerContent.style.animationPlayState === 'paused') {
+                        tickerContent.style.animationPlayState = 'running';
+                    } else {
+                        tickerContent.style.animationPlayState = 'paused';
+                    }
+                });
+            }
+        });
+
+        // Sector data
+        const sectorData = {
+            'devre-tatil': {
+                analysis: 'Devre tatil sektörü, yüksek değerli satışlar ve uzun satış döngüleri ile karakterizedir. Müşteriler genellikle büyük yatırımlar yapmakta ve detaylı bilgi gerektirmektedir.',
+                benefits: [
+                    'Yüksek komisyon oranları',
+                    'Tekrarlayan müşteri potansiyeli',
+                    'Sezonsal bonus fırsatları',
+                    'Uluslararası satış imkanları'
+                ],
+                challenges: [
+                    'Uzun satış döngüleri',
+                    'Yüksek müşteri beklentileri',
+                    'Sezonsal dalgalanmalar',
+                    'Rekabetçi fiyatlandırma'
+                ],
+                solutions: [
+                    'Müşteri ilişkileri yönetimi',
+                    'Detaylı ürün bilgisi',
+                    'Esnek ödeme seçenekleri',
+                    'Sonrası hizmet takibi'
+                ]
+            },
+            'emlak': {
+                analysis: 'Emlak sektörü, en büyük yatırım kararlarının alındığı alandır. Müşteriler güvenilir danışmanlık ve profesyonel hizmet beklemektedir.',
+                benefits: [
+                    'Yüksek komisyon gelirleri',
+                    'Uzun vadeli müşteri ilişkileri',
+                    'Portföy çeşitlendirme',
+                    'Sosyal statü kazancı'
+                ],
+                challenges: [
+                    'Piyasa dalgalanmaları',
+                    'Uzun satış süreçleri',
+                    'Yasal düzenlemeler',
+                    'Müşteri güveni oluşturma'
+                ],
+                solutions: [
+                    'Piyasa analizi ve raporlama',
+                    'Müşteri segmentasyonu',
+                    'Dijital pazarlama stratejileri',
+                    'Sürekli eğitim ve gelişim'
+                ]
+            },
+            'otomotiv': {
+                analysis: 'Otomotiv sektörü, teknik bilgi ve müşteri hizmetleri odaklı bir satış alanıdır. Müşteriler kaliteli hizmet ve güvenilir ürünler aramaktadır.',
+                benefits: [
+                    'Teknik bilgi gelişimi',
+                    'Çeşitli ürün portföyü',
+                    'Servis satış fırsatları',
+                    'Marka bağlılığı oluşturma'
+                ],
+                challenges: [
+                    'Teknik bilgi gereksinimi',
+                    'Rekabetçi fiyatlandırma',
+                    'Stok yönetimi',
+                    'Müşteri eğitimi'
+                ],
+                solutions: [
+                    'Ürün eğitimleri',
+                    'Test sürüş organizasyonları',
+                    'Finansman seçenekleri',
+                    'Garanti ve servis paketleri'
+                ]
+            },
+            'finansal': {
+                analysis: 'Finansal hizmetler sektörü, yüksek güven gerektiren ve düzenleyici kuralların sıkı olduğu bir alandır. Müşteriler güvenilir ve şeffaf hizmet beklemektedir.',
+                benefits: [
+                    'Yüksek gelir potansiyeli',
+                    'Uzun vadeli müşteri ilişkileri',
+                    'Çeşitli ürün portföyü',
+                    'Profesyonel gelişim fırsatları'
+                ],
+                challenges: [
+                    'Düzenleyici uyumluluk',
+                    'Karmaşık ürün yapıları',
+                    'Güven oluşturma',
+                    'Rekabetçi piyasa'
+                ],
+                solutions: [
+                    'Sürekli eğitim ve sertifikasyon',
+                    'Müşteri risk analizi',
+                    'Kişiselleştirilmiş çözümler',
+                    'Dijital kanalların kullanımı'
+                ]
+            },
+            'telekom': {
+                analysis: 'Telekomünikasyon sektörü, hızlı teknolojik değişimlerin yaşandığı ve müşteri ihtiyaçlarının sürekli geliştiği bir alandır.',
+                benefits: [
+                    'Teknoloji odaklı çalışma',
+                    'Hızlı satış döngüleri',
+                    'Çeşitli ürün portföyü',
+                    'Dijital pazarlama fırsatları'
+                ],
+                challenges: [
+                    'Hızlı teknolojik değişim',
+                    'Fiyat rekabeti',
+                    'Müşteri sadakati',
+                    'Teknik destek gereksinimi'
+                ],
+                solutions: [
+                    'Sürekli teknoloji eğitimi',
+                    'Müşteri segmentasyonu',
+                    'Paket çözümler',
+                    'Dijital self-servis kanalları'
+                ]
+            },
+            'b2b': {
+                analysis: 'B2B satış, karmaşık karar süreçleri ve uzun satış döngüleri ile karakterizedir. Müşteriler ROI odaklı çözümler aramaktadır.',
+                benefits: [
+                    'Yüksek değerli satışlar',
+                    'Uzun vadeli sözleşmeler',
+                    'Stratejik ortaklıklar',
+                    'Profesyonel gelişim'
+                ],
+                challenges: [
+                    'Uzun satış döngüleri',
+                    'Çoklu karar vericiler',
+                    'Karmaşık ürün yapıları',
+                    'Rekabetçi teklif süreçleri'
+                ],
+                solutions: [
+                    'İlişki yönetimi',
+                    'Değer önerisi geliştirme',
+                    'Teknik sunumlar',
+                    'Referans yönetimi'
+                ]
+            },
+            'eticaret': {
+                analysis: 'E-ticaret sektörü, dijital dönüşümün merkezinde yer alan ve sürekli büyüyen bir alandır. Müşteriler hızlı ve kolay alışveriş deneyimi aramaktadır.',
+                benefits: [
+                    'Dijital pazarlama becerileri',
+                    'Hızlı satış döngüleri',
+                    'Geniş müşteri tabanı',
+                    'Veri analizi fırsatları'
+                ],
+                challenges: [
+                    'Dijital rekabet',
+                    'Müşteri güveni',
+                    'Teknik altyapı',
+                    'Lojistik koordinasyon'
+                ],
+                solutions: [
+                    'Dijital pazarlama stratejileri',
+                    'Müşteri deneyimi optimizasyonu',
+                    'Veri analizi ve raporlama',
+                    'Omnichannel yaklaşım'
+                ]
+            },
+            'danismanlik': {
+                analysis: 'Satış danışmanlığı, esneklik ve bağımsızlık arayan profesyoneller için ideal bir alandır. Çoklu sektörde çalışma imkanı sunar.',
+                benefits: [
+                    'Esnek çalışma saatleri',
+                    'Çoklu sektör deneyimi',
+                    'Yüksek kazanç potansiyeli',
+                    'Bağımsız çalışma'
+                ],
+                challenges: [
+                    'Düzensiz gelir',
+                    'Kendi pazarlama',
+                    'Müşteri bulma',
+                    'Rekabetçi piyasa'
+                ],
+                solutions: [
+                    'Ağ oluşturma',
+                    'Uzmanlaşma',
+                    'Dijital pazarlama',
+                    'Referans sistemi'
+                ]
+            }
+        };
+
+        function toggleSectorDetail(sectorId) {
+            // Tıklanan kartı bul
+            const card = document.querySelector(`[data-sector="${sectorId}"]`);
+            const detail = card.querySelector('.sector-detail');
+            const button = card.querySelector(`[data-sector-id="${sectorId}"]`);
+            
+            if (detail) {
+                // Eğer detay zaten açıksa, kapat
+                detail.remove();
+                // Oku aşağı çevir
+                const icon = button.querySelector('i');
+                icon.className = 'fas fa-chevron-down';
+                return;
+            }
+            
+            // Önce tüm açık detayları kapat ve okları sıfırla
+            document.querySelectorAll('.sector-detail').forEach(detail => {
+                detail.remove();
+            });
+            document.querySelectorAll('.sector-btn i').forEach(icon => {
+                icon.className = 'fas fa-chevron-down';
+            });
+            
+            // Sadece tıklanan kart için detay oluştur
+            const data = sectorData[sectorId];
+            const detailHtml = `
+                <div class="sector-detail active">
+                    <div class="sector-analysis">${data.analysis}</div>
+                    <div class="sector-benefits">
+                        <h4>Avantajlar</h4>
+                        <ul>
+                            ${data.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="sector-challenges">
+                        <h4>Zorluklar</h4>
+                        <ul>
+                            ${data.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="sector-solutions">
+                        <h4>Çözümler</h4>
+                        <ul>
+                            ${data.solutions.map(solution => `<li>${solution}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            card.insertAdjacentHTML('beforeend', detailHtml);
+            
+            // Oku yukarı çevir
+            const icon = button.querySelector('i');
+            icon.className = 'fas fa-chevron-up';
+        }
+    </script>
+</body>
+</html>

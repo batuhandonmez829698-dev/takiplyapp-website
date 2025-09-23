@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme - TakiplyApp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        .payment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .payment-header h1 {
+            color: #6366f1;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background: #f8fafc;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: #6366f1;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .pricing-card.recommended {
+            border-color: #6366f1;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .pricing-card.recommended::before {
+            content: "Önerilen";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f59e0b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-period {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li i {
+            color: #10b981;
+            font-size: 1.1rem;
+        }
+
+        .select-plan-btn {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .select-plan-btn:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .pricing-card.recommended .select-plan-btn {
+            background: white;
+            color: #6366f1;
+        }
+
+        .pricing-card.recommended .select-plan-btn:hover {
+            background: #f8fafc;
+        }
+
+        .payment-form {
+            display: none;
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .stripe-element {
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .payment-summary {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-top: 2px solid #e5e7eb;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .pay-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .pay-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .pay-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #6366f1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            display: none;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .error-message {
+            display: none;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .payment-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="logo.png" alt="TakiplyApp Logo">
+                        </div>
+                        TakiplyApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Payment Container -->
+    <div class="container">
+        <div class="payment-container">
+            <div class="payment-header">
+                <h1>🚀 TakiplyApp Premium</h1>
+                <p>İşinizi büyütmek için doğru planı seçin</p>
+            </div>
+
+            <!-- Pricing Plans -->
+            <div class="pricing-grid">
+                <div class="pricing-card" data-plan="basic" data-price="99">
+                    <div class="plan-name">Temel Plan</div>
+                    <div class="plan-price">₺99</div>
+                    <div class="plan-period">aylık</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 100 Müşteri</li>
+                        <li><i class="fas fa-check"></i> 500 Satış Kaydı</li>
+                        <li><i class="fas fa-check"></i> Temel Raporlar</li>
+                        <li><i class="fas fa-check"></i> Email Destek</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('basic', 99)">Seç</button>
+                </div>
+
+                <div class="pricing-card recommended" data-plan="pro" data-price="199">
+                    <div class="plan-name">Pro Plan</div>
+                    <div class="plan-price">₺199</div>
+                    <div class="plan-period">aylık</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 1000 Müşteri</li>
+                        <li><i class="fas fa-check"></i> Sınırsız Satış</li>
+                        <li><i class="fas fa-check"></i> Gelişmiş Raporlar</li>
+                        <li><i class="fas fa-check"></i> AI Asistan</li>
+                        <li><i class="fas fa-check"></i> 7/24 Destek</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('pro', 199)">Seç</button>
+                </div>
+
+                <div class="pricing-card" data-plan="enterprise" data-price="399">
+                    <div class="plan-name">Kurumsal</div>
+                    <div class="plan-price">₺399</div>
+                    <div class="plan-period">aylık</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Sınırsız Müşteri</li>
+                        <li><i class="fas fa-check"></i> Sınırsız Satış</li>
+                        <li><i class="fas fa-check"></i> Tüm Raporlar</li>
+                        <li><i class="fas fa-check"></i> Takım Yönetimi</li>
+                        <li><i class="fas fa-check"></i> API Entegrasyonu</li>
+                        <li><i class="fas fa-check"></i> Özel Destek</li>
+                    </ul>
+                    <button class="select-plan-btn" onclick="selectPlan('enterprise', 399)">Seç</button>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-form" id="paymentForm">
+                <h3>💳 Ödeme Bilgileri</h3>
+                
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <span>Seçilen Plan:</span>
+                        <span id="selectedPlan">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Aylık Ücret:</span>
+                        <span id="monthlyPrice">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>KDV (%18):</span>
+                        <span id="taxAmount">-</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Toplam:</span>
+                        <span id="totalAmount">-</span>
+                    </div>
+                </div>
+
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label for="email">E-posta Adresi</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Ad Soyad</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kredi Kartı Bilgileri</label>
+                        <div id="card-element" class="stripe-element">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+
+                    <button type="submit" class="pay-btn" id="pay-btn">
+                        <i class="fas fa-lock"></i> Güvenli Ödeme Yap
+                    </button>
+                </form>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Ödemeniz işleniyor...</p>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3>Ödeme Başarılı! 🎉</h3>
+                    <p>TakiplyApp Premium hesabınız aktif edildi. Hoş geldiniz!</p>
+                    <a href="index.html" class="btn btn-primary" style="margin-top: 1rem;">Ana Sayfaya Dön</a>
+                </div>
+
+                <div class="error-message" id="errorMessage">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3>Ödeme Başarısız! ❌</h3>
+                    <p id="errorText">Bir hata oluştu. Lütfen tekrar deneyin.</p>
+                    <button onclick="retryPayment()" class="btn btn-secondary" style="margin-top: 1rem;">Tekrar Dene</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Stripe Configuration
+        const stripe = Stripe('pk_test_51234567890abcdef'); // Test key - gerçek key'i buraya koy
+        const elements = stripe.elements();
+
+        let selectedPlan = null;
+        let selectedPrice = 0;
+
+        // Plan selection
+        function selectPlan(plan, price) {
+            selectedPlan = plan;
+            selectedPrice = price;
+            
+            // Update UI
+            document.querySelectorAll('.pricing-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            document.querySelector(`[data-plan="${plan}"]`).classList.add('selected');
+            
+            // Show payment form
+            document.getElementById('paymentForm').classList.add('active');
+            
+            // Update summary
+            updatePaymentSummary(plan, price);
+            
+            // Scroll to payment form
+            document.getElementById('paymentForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updatePaymentSummary(plan, price) {
+            const planNames = {
+                'basic': 'Temel Plan',
+                'pro': 'Pro Plan',
+                'enterprise': 'Kurumsal Plan'
+            };
+
+            const tax = price * 0.18;
+            const total = price + tax;
+
+            document.getElementById('selectedPlan').textContent = planNames[plan];
+            document.getElementById('monthlyPrice').textContent = `₺${price}`;
+            document.getElementById('taxAmount').textContent = `₺${tax.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = `₺${total.toFixed(2)}`;
+        }
+
+        // Create Stripe Elements
+        const cardElement = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#424770',
+                    '::placeholder': {
+                        color: '#aab7c4',
+                    },
+                },
+            },
+        });
+
+        cardElement.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element
+        cardElement.on('change', function(event) {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const payBtn = document.getElementById('pay-btn');
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Show loading
+            payBtn.disabled = true;
+            loading.classList.add('active');
+            errorMessage.classList.remove('active');
+
+            try {
+                // Create payment method
+                const {error, paymentMethod} = await stripe.createPaymentMethod({
+                    type: 'card',
+                    card: cardElement,
+                    billing_details: {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                    },
+                });
+
+                if (error) {
+                    throw error;
+                }
+
+                // Simulate payment processing
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Show success
+                loading.classList.remove('active');
+                successMessage.classList.add('active');
+                
+                // Hide form
+                form.style.display = 'none';
+
+            } catch (error) {
+                // Show error
+                loading.classList.remove('active');
+                errorMessage.classList.add('active');
+                document.getElementById('errorText').textContent = error.message;
+                payBtn.disabled = false;
+            }
+        });
+
+        function retryPayment() {
+            document.getElementById('errorMessage').classList.remove('active');
+            document.getElementById('payment-form').style.display = 'block';
+            document.getElementById('pay-btn').disabled = false;
+        }
+
+        // Add selected class styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .pricing-card.selected {
+                border-color: #10b981;
+                background: #f0fdf4;
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+
