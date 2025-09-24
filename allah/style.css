@@ -1,0 +1,1215 @@
+/* Islamic App CSS - Namespaced to prevent conflicts with TakiplyApp */
+.islamic-app {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #1f2937;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.islamic-app * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.islamic-app :root {
+    --islamic-primary-color: #2c5530;
+    --islamic-secondary-color: #4a6741;
+    --islamic-accent-color: #667eea;
+    --islamic-success-color: #10b981;
+    --islamic-warning-color: #f59e0b;
+    --islamic-danger-color: #ef4444;
+    --islamic-dark-color: #1f2937;
+    --islamic-light-color: #f8fafc;
+    --islamic-border-color: #e5e7eb;
+    --islamic-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --islamic-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --islamic-border-radius: 12px;
+    --islamic-border-radius-lg: 16px;
+    --islamic-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* App Container */
+.islamic-app .app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Header */
+.islamic-app .app-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.islamic-app .header-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--islamic-border-radius-lg);
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.islamic-app .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.islamic-app .logo i {
+    font-size: 2.5rem;
+    color: #ffd700;
+}
+
+.islamic-app .logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.islamic-app .header-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.islamic-app .copyright-notice {
+    margin: 15px 0;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.islamic-app .copyright-notice i {
+    color: #ffd700;
+}
+
+.islamic-app .header-links {
+    margin-top: 15px;
+}
+
+.islamic-app .story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.islamic-app .story-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Layout */
+.islamic-app .app-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Preview Section */
+.islamic-app .preview-section {
+    background: white;
+    border-radius: var(--islamic-border-radius-lg);
+    padding: 25px;
+    box-shadow: var(--islamic-shadow-lg);
+    position: sticky;
+    top: 20px;
+}
+
+.islamic-app .preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--islamic-border-color);
+}
+
+.islamic-app .preview-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--islamic-dark-color);
+    font-weight: 600;
+}
+
+.islamic-app .preview-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.islamic-app .btn-icon {
+    background: var(--islamic-light-color);
+    border: 1px solid var(--islamic-border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    color: var(--islamic-dark-color);
+}
+
+.islamic-app .btn-icon:hover {
+    background: var(--islamic-accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.islamic-app .post-preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.islamic-app .post-canvas {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    border-radius: var(--islamic-border-radius);
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #2c5530 0%, #4a6741 100%);
+    box-shadow: var(--islamic-shadow-lg);
+    transition: var(--islamic-transition);
+}
+
+.islamic-app .post-canvas:hover {
+    transform: scale(1.02);
+}
+
+.islamic-app .post-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.islamic-app .post-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 30px;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.islamic-app .arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.islamic-app .turkish-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.islamic-app .post-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.7;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+/* Controls Section */
+.islamic-app .controls-section {
+    background: white;
+    border-radius: var(--islamic-border-radius-lg);
+    padding: 25px;
+    box-shadow: var(--islamic-shadow-lg);
+}
+
+.islamic-app .controls-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--islamic-border-color);
+}
+
+.islamic-app .controls-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--islamic-dark-color);
+    font-weight: 600;
+}
+
+.islamic-app .controls-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Control Cards */
+.islamic-app .control-card {
+    background: var(--islamic-light-color);
+    border-radius: var(--islamic-border-radius);
+    padding: 20px;
+    border: 1px solid var(--islamic-border-color);
+    transition: var(--islamic-transition);
+}
+
+.islamic-app .control-card:hover {
+    box-shadow: var(--islamic-shadow);
+    transform: translateY(-2px);
+}
+
+.islamic-app .control-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.islamic-app .control-header i {
+    color: var(--islamic-accent-color);
+    font-size: 1.1rem;
+}
+
+.islamic-app .control-header h4 {
+    color: var(--islamic-dark-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.islamic-app .control-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Search Container */
+.islamic-app .search-container {
+    margin-bottom: 15px;
+}
+
+.islamic-app .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.islamic-app .search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--islamic-border-color);
+    z-index: 2;
+    font-size: 14px;
+}
+
+.islamic-app .search-input {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border: 2px solid var(--islamic-border-color);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--islamic-dark-color);
+    transition: var(--islamic-transition);
+}
+
+.islamic-app .search-input:focus {
+    outline: none;
+    border-color: var(--islamic-accent-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.islamic-app .clear-search {
+    position: absolute;
+    right: 8px;
+    background: var(--islamic-border-color);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    color: white;
+    font-size: 12px;
+}
+
+.islamic-app .clear-search:hover {
+    background: var(--islamic-danger-color);
+}
+
+/* Search Results */
+.islamic-app .search-results {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--islamic-border-color);
+    border-radius: 8px;
+    background: white;
+    margin-top: 10px;
+}
+
+.islamic-app .search-result-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--islamic-border-color);
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.islamic-app .search-result-item:last-child {
+    border-bottom: none;
+}
+
+.islamic-app .search-result-item:hover {
+    background: var(--islamic-light-color);
+}
+
+.islamic-app .search-result-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--islamic-dark-color);
+    line-height: 1.4;
+}
+
+.islamic-app .search-result-turkish {
+    font-size: 12px;
+    color: var(--islamic-border-color);
+    line-height: 1.3;
+}
+
+.islamic-app .search-result-category {
+    font-size: 10px;
+    color: var(--islamic-accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Modern Select */
+.islamic-app .modern-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--islamic-border-color);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--islamic-dark-color);
+    transition: var(--islamic-transition);
+    cursor: pointer;
+}
+
+.islamic-app .modern-select:focus {
+    outline: none;
+    border-color: var(--islamic-accent-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Random Button */
+.islamic-app .btn-random {
+    background: linear-gradient(135deg, var(--islamic-accent-color) 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.islamic-app .btn-random:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--islamic-shadow);
+}
+
+/* Background Upload */
+.islamic-app .background-upload {
+    margin-top: 10px;
+}
+
+.islamic-app .upload-area {
+    border: 2px dashed var(--islamic-border-color);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    background: var(--islamic-light-color);
+}
+
+.islamic-app .upload-area:hover {
+    border-color: var(--islamic-accent-color);
+    background: rgba(102, 126, 234, 0.05);
+}
+
+.islamic-app .upload-area.dragover {
+    border-color: var(--islamic-accent-color);
+    background: rgba(102, 126, 234, 0.1);
+    transform: scale(1.02);
+}
+
+.islamic-app .upload-icon {
+    font-size: 32px;
+    color: var(--islamic-border-color);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.islamic-app .upload-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--islamic-dark-color);
+    margin: 0 0 4px 0;
+}
+
+.islamic-app .upload-subtext {
+    font-size: 12px;
+    color: var(--islamic-border-color);
+    margin: 0;
+}
+
+.islamic-app .background-preview {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.islamic-app .background-preview img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.islamic-app .remove-bg-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    color: white;
+    font-size: 12px;
+}
+
+.islamic-app .remove-bg-btn:hover {
+    background: var(--islamic-danger-color);
+    transform: scale(1.1);
+}
+
+/* Text Controls */
+.islamic-app .text-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.islamic-app .text-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.islamic-app .text-control-group label {
+    font-weight: 600;
+    color: var(--islamic-dark-color);
+    font-size: 14px;
+}
+
+.islamic-app .control-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.islamic-app .color-input, .islamic-app .size-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.islamic-app .color-input input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+}
+
+.islamic-app .color-input input[type="color"]:hover {
+    transform: scale(1.1);
+}
+
+.islamic-app .size-input input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--islamic-border-color);
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.islamic-app .size-input input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--islamic-accent-color);
+    cursor: pointer;
+    box-shadow: var(--islamic-shadow);
+    transition: var(--islamic-transition);
+}
+
+.islamic-app .size-input input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.islamic-app .size-input span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--islamic-dark-color);
+}
+
+/* Align Buttons */
+.islamic-app .align-buttons {
+    display: flex;
+    gap: 5px;
+    background: var(--islamic-border-color);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.islamic-app .align-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    color: var(--islamic-dark-color);
+}
+
+.islamic-app .align-btn:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.islamic-app .align-btn.active {
+    background: var(--islamic-accent-color);
+    color: white;
+}
+
+/* Action Buttons */
+.islamic-app .action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.islamic-app .btn {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.islamic-app .btn-primary {
+    background: linear-gradient(135deg, var(--islamic-accent-color) 0%, #764ba2 100%);
+    color: white;
+}
+
+.islamic-app .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--islamic-shadow);
+}
+
+.islamic-app .btn-secondary {
+    background: linear-gradient(135deg, var(--islamic-success-color) 0%, #059669 100%);
+    color: white;
+}
+
+.islamic-app .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--islamic-shadow);
+}
+
+/* Fullscreen Modal */
+.islamic-app .fullscreen-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.islamic-app .fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.islamic-app .fullscreen-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.islamic-app .close-fullscreen {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.islamic-app .close-fullscreen:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.islamic-app .fullscreen-preview {
+    width: 600px;
+    height: 600px;
+    border-radius: var(--islamic-border-radius);
+    overflow: hidden;
+    box-shadow: var(--islamic-shadow-lg);
+}
+
+/* Varsayılan arka plan */
+.islamic-app .post-canvas {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Hashtag Modal */
+.islamic-app .hashtag-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.islamic-app .hashtag-content {
+    background: white;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+.islamic-app .hashtag-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--islamic-border-color);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px 16px 0 0;
+}
+
+.islamic-app .hashtag-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.islamic-app .close-hashtag {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    color: white;
+}
+
+.islamic-app .close-hashtag:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.islamic-app .hashtag-body {
+    padding: 24px;
+}
+
+.islamic-app .hashtag-instruction {
+    margin: 0 0 20px 0;
+    color: var(--islamic-border-color);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.islamic-app .hashtag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.islamic-app .hashtag-item {
+    background: var(--islamic-light-color);
+    color: var(--islamic-accent-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    border: 1px solid var(--islamic-border-color);
+}
+
+.islamic-app .hashtag-item:hover {
+    background: var(--islamic-accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.islamic-app .copy-hashtags {
+    width: 100%;
+    background: linear-gradient(135deg, var(--islamic-accent-color) 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--islamic-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.islamic-app .copy-hashtags:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--islamic-shadow-lg);
+}
+
+/* Açıklama Metni */
+.islamic-app .description-text {
+    background: var(--islamic-light-color);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--islamic-border-color);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--islamic-dark-color);
+    white-space: pre-line;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .islamic-app .app-main {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .islamic-app .preview-section {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .islamic-app .app-container {
+        padding: 15px;
+    }
+    
+    .islamic-app .header-content {
+        padding: 20px;
+    }
+    
+    .islamic-app .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .islamic-app .post-canvas {
+        max-width: 350px;
+    }
+    
+    .islamic-app .arabic-text {
+        font-size: 24px;
+    }
+    
+    .islamic-app .turkish-text {
+        font-size: 14px;
+    }
+    
+    .islamic-app .action-buttons {
+        flex-direction: column;
+    }
+    
+    .islamic-app .background-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .islamic-app .control-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .islamic-app .post-canvas {
+        max-width: 300px;
+    }
+    
+    .islamic-app .arabic-text {
+        font-size: 20px;
+    }
+    
+    .islamic-app .turkish-text {
+        font-size: 12px;
+    }
+    
+    .islamic-app .background-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .islamic-app .fullscreen-preview {
+        width: 90vw;
+        height: 90vw;
+    }
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.islamic-app .control-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.islamic-app .control-card:nth-child(1) { animation-delay: 0.1s; }
+.islamic-app .control-card:nth-child(2) { animation-delay: 0.2s; }
+.islamic-app .control-card:nth-child(3) { animation-delay: 0.3s; }
+.islamic-app .control-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Story Page Styles */
+.islamic-app .story-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.islamic-app .story-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.islamic-app .story-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.islamic-app .story-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.islamic-app .story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    align-items: start;
+}
+
+.islamic-app .story-preview-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.islamic-app .story-preview {
+    width: 300px;
+    height: 533px; /* 9:16 oran */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;
+}
+
+.islamic-app .story-content {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.islamic-app .story-category {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.islamic-app .story-arabic {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-family: 'Amiri', serif;
+}
+
+.islamic-app .story-turkish {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    opacity: 0.9;
+}
+
+.islamic-app .story-hashtags {
+    font-size: 10px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.islamic-app .story-username {
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.islamic-app .story-watermark {
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.islamic-app .story-controls {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.islamic-app .control-group {
+    margin-bottom: 25px;
+}
+
+.islamic-app .control-group label {
+    display: block;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.islamic-app .control-group select,
+.islamic-app .control-group input,
+.islamic-app .control-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    color: #333;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.islamic-app .control-group textarea {
+    min-height: 80px;
+}
+
+.islamic-app .story-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.islamic-app .btn-story {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.islamic-app .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.islamic-app .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.islamic-app .btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.islamic-app .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .islamic-app .story-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .islamic-app .story-preview {
+        width: 250px;
+        height: 444px;
+    }
+    
+    .islamic-app .story-header h1 {
+        font-size: 2rem;
+    }
+}

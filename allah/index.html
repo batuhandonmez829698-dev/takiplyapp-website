@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕌 İslami Instagram Post Oluşturucu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="islamic-app">
+        <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+                <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mosque"></i>
+                    <h1>İslami Post Oluşturucu</h1>
+                </div>
+                <p class="header-subtitle">Hadis, dua ve ayetlerle güzel postlar oluşturun</p>
+                <div class="copyright-notice">
+                    <i class="fas fa-copyright"></i>
+                    <span>© 2024 @kalbimizdeiman - Tüm hakları saklıdır</span>
+                </div>
+                <div class="header-links">
+                    <a href="story.html" class="story-link">
+                        <i class="fas fa-mobile-alt"></i> Story Üretici
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="app-main">
+            <!-- Post Preview Section -->
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h3><i class="fas fa-eye"></i> Önizleme</h3>
+                    <div class="preview-actions">
+                        <button id="fullscreenBtn" class="btn-icon" title="Tam Ekran">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="post-preview-container">
+                    <div class="post-canvas" id="postCanvas">
+                        <div class="post-overlay"></div>
+                        <div class="post-content">
+                            <div class="arabic-text" id="arabicText">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                            <div class="turkish-text" id="turkishText">Rahman ve Rahim olan Allah'ın adıyla</div>
+                        </div>
+                        <div class="post-watermark">@kalbimizdeiman</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls Section -->
+            <div class="controls-section">
+                <div class="controls-header">
+                    <h3><i class="fas fa-sliders-h"></i> Düzenleme Araçları</h3>
+                </div>
+
+                <div class="controls-content">
+                    <!-- Content Selection -->
+                    <div class="control-card">
+                        <div class="control-header">
+                            <i class="fas fa-book-open"></i>
+                            <h4>İçerik Seçimi</h4>
+                        </div>
+                        <div class="control-body">
+                            <div class="search-container">
+                                <div class="search-input-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="text" id="contentSearch" placeholder="İçerik ara..." class="search-input">
+                                    <button id="clearSearch" class="clear-search" style="display: none;">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <select id="contentSelect" class="modern-select">
+                                <option value="">İçerik kategorisi seçin...</option>
+                                <option value="dua">📿 Dualar</option>
+                                <option value="hadis">💬 Hadisler</option>
+                                <option value="ayet">📖 Ayetler</option>
+                                <option value="zikir">🕯️ Zikirler</option>
+                            </select>
+                            
+                            <div id="searchResults" class="search-results" style="display: none;">
+                                <!-- Arama sonuçları buraya gelecek -->
+                            </div>
+                            
+                            <button id="randomBtn" class="btn-random">
+                                <i class="fas fa-random"></i> Rastgele İçerik
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Background Upload -->
+                    <div class="control-card">
+                        <div class="control-header">
+                            <i class="fas fa-image"></i>
+                            <h4>Arka Plan</h4>
+                        </div>
+                        <div class="control-body">
+                            <div class="background-upload">
+                                <div class="upload-area" id="uploadArea">
+                                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                    <p class="upload-text">Arka plan resmi yüklemek için tıklayın</p>
+                                    <p class="upload-subtext">veya sürükleyip bırakın</p>
+                                </div>
+                                <input type="file" id="backgroundInput" accept="image/*" style="display: none;">
+                                <div class="background-preview" id="backgroundPreview" style="display: none;">
+                                    <img id="previewImage" src="" alt="Arka plan önizleme">
+                                    <button id="removeBackground" class="remove-bg-btn">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Customization -->
+                    <div class="control-card">
+                        <div class="control-header">
+                            <i class="fas fa-font"></i>
+                            <h4>Metin Özelleştirme</h4>
+                        </div>
+                        <div class="control-body">
+                            <div class="text-controls">
+                                <div class="text-control-group">
+                                    <label>Arapça Metin</label>
+                                    <div class="control-row">
+                                        <div class="color-input">
+                                            <input type="color" id="arabicColor" value="#ffffff">
+                                            <span>Renk</span>
+                                        </div>
+                                        <div class="size-input">
+                                            <input type="range" id="arabicSize" min="16" max="48" value="28">
+                                            <span id="arabicSizeValue">28px</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-control-group">
+                                    <label>Türkçe Metin</label>
+                                    <div class="control-row">
+                                        <div class="color-input">
+                                            <input type="color" id="turkishColor" value="#f0f0f0">
+                                            <span>Renk</span>
+                                        </div>
+                                        <div class="size-input">
+                                            <input type="range" id="turkishSize" min="12" max="24" value="16">
+                                            <span id="turkishSizeValue">16px</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-control-group">
+                                    <label>Hizalama</label>
+                                    <div class="align-buttons">
+                                        <button class="align-btn" data-align="left">
+                                            <i class="fas fa-align-left"></i>
+                                        </button>
+                                        <button class="align-btn active" data-align="center">
+                                            <i class="fas fa-align-center"></i>
+                                        </button>
+                                        <button class="align-btn" data-align="right">
+                                            <i class="fas fa-align-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="control-card">
+                        <div class="control-header">
+                            <i class="fas fa-download"></i>
+                            <h4>İşlemler</h4>
+                        </div>
+                        <div class="control-body">
+                        <div class="action-buttons">
+                            <button id="downloadBtn" class="btn btn-primary">
+                                <i class="fas fa-download"></i>
+                                Post İndir
+                            </button>
+                            <button id="hashtagBtn" class="btn btn-secondary">
+                                <i class="fas fa-hashtag"></i>
+                                Hashtag'ler
+                            </button>
+                            <button id="descriptionBtn" class="btn btn-secondary">
+                                <i class="fas fa-file-text"></i>
+                                Açıklama
+                            </button>
+                            <button id="shareBtn" class="btn btn-secondary">
+                                <i class="fas fa-share"></i>
+                                Paylaş
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div id="fullscreenModal" class="fullscreen-modal">
+        <div class="fullscreen-content">
+            <button class="close-fullscreen">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="fullscreen-preview" id="fullscreenPreview"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
