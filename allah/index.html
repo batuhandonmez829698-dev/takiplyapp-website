@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🕌 İslami Instagram Post Oluşturucu</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="protected-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Şifre Kontrolü -->
+    <script>
+        // Şifre kontrolü
+        function checkPassword() {
+            const passwordVerified = sessionStorage.getItem('passwordVerified');
+            const passwordTime = sessionStorage.getItem('passwordTime');
+            
+            // Şifre doğrulandı mı kontrol et
+            if (!passwordVerified || passwordVerified !== 'true') {
+                window.location.href = 'password.html';
+                return false;
+            }
+            
+            // Şifre 24 saat geçerli (86400000 ms)
+            const currentTime = Date.now();
+            const timeDiff = currentTime - parseInt(passwordTime);
+            
+            if (timeDiff > 86400000) {
+                sessionStorage.removeItem('passwordVerified');
+                sessionStorage.removeItem('passwordTime');
+                window.location.href = 'password.html';
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Sayfa yüklendiğinde şifre kontrolü yap
+        if (!checkPassword()) {
+            // Şifre kontrolü başarısız, sayfa yüklenmesin
+            document.body.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-family: Poppins, sans-serif;"><div style="text-align: center;"><i class="fas fa-lock" style="font-size: 3rem; margin-bottom: 20px;"></i><h2>Şifre kontrolü yapılıyor...</h2></div></div>';
+        }
+    </script>
 </head>
 <body>
     <div class="app-container">
@@ -217,6 +251,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="protected-script.js"></script>
 </body>
 </html>

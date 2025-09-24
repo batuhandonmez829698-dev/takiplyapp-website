@@ -1020,64 +1020,81 @@ const islamicContent = {
 // Kullanıcı yüklenen arka plan
 let userBackground = null;
 
-// DOM elementleri
-const postCanvas = document.getElementById('postCanvas');
-const arabicText = document.getElementById('arabicText');
-const turkishText = document.getElementById('turkishText');
-const contentSelect = document.getElementById('contentSelect');
-const arabicColor = document.getElementById('arabicColor');
-const turkishColor = document.getElementById('turkishColor');
-const arabicSize = document.getElementById('arabicSize');
-const turkishSize = document.getElementById('turkishSize');
-const arabicSizeValue = document.getElementById('arabicSizeValue');
-const turkishSizeValue = document.getElementById('turkishSizeValue');
-const downloadBtn = document.getElementById('downloadBtn');
-const shareBtn = document.getElementById('shareBtn');
-const randomBtn = document.getElementById('randomBtn');
-const fullscreenBtn = document.getElementById('fullscreenBtn');
-const fullscreenModal = document.getElementById('fullscreenModal');
-const fullscreenPreview = document.getElementById('fullscreenPreview');
-const closeFullscreen = document.querySelector('.close-fullscreen');
-
-// Arama elementleri
-const contentSearch = document.getElementById('contentSearch');
-const searchResults = document.getElementById('searchResults');
-const clearSearch = document.getElementById('clearSearch');
-
-// Arka plan yükleme elementleri
-const uploadArea = document.getElementById('uploadArea');
-const backgroundInput = document.getElementById('backgroundInput');
-const backgroundPreview = document.getElementById('backgroundPreview');
-const previewImage = document.getElementById('previewImage');
-const removeBackground = document.getElementById('removeBackground');
-
-// Hashtag butonu
-const hashtagBtn = document.getElementById('hashtagBtn');
-
-// Açıklama butonu
-const descriptionBtn = document.getElementById('descriptionBtn');
-
+// DOM elementleri - global değişkenler
+let postCanvas, arabicText, turkishText, contentSelect, arabicColor, turkishColor;
+let arabicSize, turkishSize, arabicSizeValue, turkishSizeValue;
+let downloadBtn, shareBtn, randomBtn, fullscreenBtn, fullscreenModal, fullscreenPreview, closeFullscreen;
+let contentSearch, searchResults, clearSearch;
+let uploadArea, backgroundInput, backgroundPreview, previewImage, removeBackground;
+let hashtagBtn, descriptionBtn;
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {
+    // DOM elementlerini burada seç
+    initializeDOMElements();
     setupEventListeners();
     loadDefaultContent();
     updateSizeDisplays();
 });
 
+// DOM elementlerini başlat
+function initializeDOMElements() {
+    postCanvas = document.getElementById('postCanvas');
+    arabicText = document.getElementById('arabicText');
+    turkishText = document.getElementById('turkishText');
+    contentSelect = document.getElementById('contentSelect');
+    arabicColor = document.getElementById('arabicColor');
+    turkishColor = document.getElementById('turkishColor');
+    arabicSize = document.getElementById('arabicSize');
+    turkishSize = document.getElementById('turkishSize');
+    arabicSizeValue = document.getElementById('arabicSizeValue');
+    turkishSizeValue = document.getElementById('turkishSizeValue');
+    downloadBtn = document.getElementById('downloadBtn');
+    shareBtn = document.getElementById('shareBtn');
+    randomBtn = document.getElementById('randomBtn');
+    fullscreenBtn = document.getElementById('fullscreenBtn');
+    fullscreenModal = document.getElementById('fullscreenModal');
+    fullscreenPreview = document.getElementById('fullscreenPreview');
+    closeFullscreen = document.querySelector('.close-fullscreen');
+    
+    // Arama elementleri
+    contentSearch = document.getElementById('contentSearch');
+    searchResults = document.getElementById('searchResults');
+    clearSearch = document.getElementById('clearSearch');
+    
+    // Arka plan yükleme elementleri
+    uploadArea = document.getElementById('uploadArea');
+    backgroundInput = document.getElementById('backgroundInput');
+    backgroundPreview = document.getElementById('backgroundPreview');
+    previewImage = document.getElementById('previewImage');
+    removeBackground = document.getElementById('removeBackground');
+    
+    // Hashtag butonu
+    hashtagBtn = document.getElementById('hashtagBtn');
+    
+    // Açıklama butonu
+    descriptionBtn = document.getElementById('descriptionBtn');
+}
+
 // Varsayılan içerik yükle (Besmele)
 function loadDefaultContent() {
-    arabicText.textContent = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
-    turkishText.textContent = "Rahman ve Rahim olan Allah'ın adıyla";
-    contentSelect.value = "dua";
+    if (arabicText && turkishText) {
+        arabicText.textContent = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
+        turkishText.textContent = "Rahman ve Rahim olan Allah'ın adıyla";
+    }
+    if (contentSelect) {
+        contentSelect.value = "dua";
+    }
     updateTextStyles();
 }
 
 // Arka plan yükleme fonksiyonları
 function setupBackgroundUpload() {
+    if (!uploadArea || !backgroundInput) return;
+    
     // Upload area'ya tıklama
     uploadArea.addEventListener('click', () => {
-        backgroundInput.click();
+        if (backgroundInput) backgroundInput.click();
     });
     
     // Dosya seçimi
@@ -1089,7 +1106,9 @@ function setupBackgroundUpload() {
     uploadArea.addEventListener('drop', handleDrop);
     
     // Arka plan kaldırma
-    removeBackground.addEventListener('click', removeUserBackground);
+    if (removeBackground) {
+        removeBackground.addEventListener('click', removeUserBackground);
+    }
 }
 
 // Dosya seçimi
@@ -1128,14 +1147,16 @@ function loadUserBackground(file) {
     const reader = new FileReader();
     reader.onload = function(e) {
         userBackground = e.target.result;
-        previewImage.src = userBackground;
-        backgroundPreview.style.display = 'block';
-        uploadArea.style.display = 'none';
+        if (previewImage) previewImage.src = userBackground;
+        if (backgroundPreview) backgroundPreview.style.display = 'block';
+        if (uploadArea) uploadArea.style.display = 'none';
         
         // Post canvas'a arka planı uygula
-        postCanvas.style.backgroundImage = `url(${userBackground})`;
-        postCanvas.style.backgroundSize = 'cover';
-        postCanvas.style.backgroundPosition = 'center';
+        if (postCanvas) {
+            postCanvas.style.backgroundImage = `url(${userBackground})`;
+            postCanvas.style.backgroundSize = 'cover';
+            postCanvas.style.backgroundPosition = 'center';
+        }
     };
     reader.readAsDataURL(file);
 }
@@ -1143,33 +1164,35 @@ function loadUserBackground(file) {
 // Kullanıcı arka planını kaldır
 function removeUserBackground() {
     userBackground = null;
-    backgroundPreview.style.display = 'none';
-    uploadArea.style.display = 'block';
+    if (backgroundPreview) backgroundPreview.style.display = 'none';
+    if (uploadArea) uploadArea.style.display = 'block';
     
     // Post canvas'tan arka planı kaldır
-    postCanvas.style.backgroundImage = '';
-    postCanvas.style.backgroundSize = '';
-    postCanvas.style.backgroundPosition = '';
+    if (postCanvas) {
+        postCanvas.style.backgroundImage = '';
+        postCanvas.style.backgroundSize = '';
+        postCanvas.style.backgroundPosition = '';
+    }
 }
 
 // Event listener'ları ayarla
 function setupEventListeners() {
-    contentSelect.addEventListener('change', loadSelectedContent);
-    arabicColor.addEventListener('input', updateTextStyles);
-    turkishColor.addEventListener('input', updateTextStyles);
-    arabicSize.addEventListener('input', updateTextStyles);
-    turkishSize.addEventListener('input', updateTextStyles);
-    downloadBtn.addEventListener('click', downloadPost);
-    hashtagBtn.addEventListener('click', showHashtagsForCurrentContent);
-    descriptionBtn.addEventListener('click', showDescriptionForCurrentContent);
-    shareBtn.addEventListener('click', sharePost);
-    randomBtn.addEventListener('click', loadRandomContent);
-    fullscreenBtn.addEventListener('click', openFullscreen);
-    closeFullscreen.addEventListener('click', closeFullscreenModal);
+    if (contentSelect) contentSelect.addEventListener('change', loadSelectedContent);
+    if (arabicColor) arabicColor.addEventListener('input', updateTextStyles);
+    if (turkishColor) turkishColor.addEventListener('input', updateTextStyles);
+    if (arabicSize) arabicSize.addEventListener('input', updateTextStyles);
+    if (turkishSize) turkishSize.addEventListener('input', updateTextStyles);
+    if (downloadBtn) downloadBtn.addEventListener('click', downloadPost);
+    if (hashtagBtn) hashtagBtn.addEventListener('click', showHashtagsForCurrentContent);
+    if (descriptionBtn) descriptionBtn.addEventListener('click', showDescriptionForCurrentContent);
+    if (shareBtn) shareBtn.addEventListener('click', sharePost);
+    if (randomBtn) randomBtn.addEventListener('click', loadRandomContent);
+    if (fullscreenBtn) fullscreenBtn.addEventListener('click', openFullscreen);
+    if (closeFullscreen) closeFullscreen.addEventListener('click', closeFullscreenModal);
     
     // Arama event listener'ları
-    contentSearch.addEventListener('input', handleSearch);
-    clearSearch.addEventListener('click', clearSearchResults);
+    if (contentSearch) contentSearch.addEventListener('input', handleSearch);
+    if (clearSearch) clearSearch.addEventListener('click', clearSearchResults);
     
     // Arka plan yükleme event listener'ları
     setupBackgroundUpload();
@@ -1200,14 +1223,20 @@ function setupEventListeners() {
 
 // Seçilen içeriği yükle
 function loadSelectedContent() {
+    if (!contentSelect) return;
+    
     const selectedType = contentSelect.value;
     if (selectedType && islamicContent[selectedType]) {
         const content = islamicContent[selectedType];
         const randomIndex = Math.floor(Math.random() * content.length);
         const selectedContent = content[randomIndex];
         
-        arabicText.textContent = selectedContent.arabic;
-        turkishText.textContent = selectedContent.turkish;
+        if (arabicText) {
+            arabicText.textContent = selectedContent.arabic;
+        }
+        if (turkishText) {
+            turkishText.textContent = selectedContent.turkish;
+        }
     }
 }
 
@@ -1219,21 +1248,31 @@ function loadRandomContent() {
     const randomIndex = Math.floor(Math.random() * content.length);
     const selectedContent = content[randomIndex];
     
-    contentSelect.value = randomType;
-    arabicText.textContent = selectedContent.arabic;
-    turkishText.textContent = selectedContent.turkish;
+    if (contentSelect) {
+        contentSelect.value = randomType;
+    }
+    if (arabicText) {
+        arabicText.textContent = selectedContent.arabic;
+    }
+    if (turkishText) {
+        turkishText.textContent = selectedContent.turkish;
+    }
 }
 
 // Metin stillerini güncelle
 function updateTextStyles() {
-    arabicText.style.color = arabicColor.value;
-    arabicText.style.fontSize = arabicSize.value + 'px';
-    turkishText.style.color = turkishColor.value;
-    turkishText.style.fontSize = turkishSize.value + 'px';
+    if (arabicText && arabicColor && arabicSize) {
+        arabicText.style.color = arabicColor.value;
+        arabicText.style.fontSize = arabicSize.value + 'px';
+    }
+    if (turkishText && turkishColor && turkishSize) {
+        turkishText.style.color = turkishColor.value;
+        turkishText.style.fontSize = turkishSize.value + 'px';
+    }
     
     const postContent = document.querySelector('.post-content');
     const activeAlign = document.querySelector('.align-btn.active');
-    if (activeAlign) {
+    if (activeAlign && postContent) {
         postContent.style.textAlign = activeAlign.dataset.align;
     }
     
@@ -1242,8 +1281,12 @@ function updateTextStyles() {
 
 // Boyut değerlerini güncelle
 function updateSizeDisplays() {
-    if (arabicSizeValue) arabicSizeValue.textContent = arabicSize.value + 'px';
-    if (turkishSizeValue) turkishSizeValue.textContent = turkishSize.value + 'px';
+    if (arabicSizeValue && arabicSize) {
+        arabicSizeValue.textContent = arabicSize.value + 'px';
+    }
+    if (turkishSizeValue && turkishSize) {
+        turkishSizeValue.textContent = turkishSize.value + 'px';
+    }
 }
 
 // Tam ekran aç
