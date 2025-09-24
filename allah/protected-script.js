@@ -348,41 +348,503 @@ function loadMainScript() {
         }
     }
 
-    // Diğer fonksiyonlar buraya eklenecek...
+    // Post'u indir
     function downloadPost() {
-        alert('Post indirme özelliği aktif!');
-    }
-
-    function sharePost() {
-        alert('Paylaşım özelliği aktif!');
-    }
-
-    function openFullscreen() {
-        if (fullscreenModal) {
-            fullscreenModal.classList.add('active');
+        // Canvas oluştur - Instagram için optimize edilmiş
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Instagram için kare format (1:1 oran)
+        const size = 1080; // Instagram'ın kabul ettiği boyut
+        canvas.width = size;
+        canvas.height = size;
+        
+        // Canvas kalitesini artır
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        
+        // DPI ayarı (Instagram için önemli)
+        const dpi = 2; // Retina ekranlar için
+        canvas.width = size * dpi;
+        canvas.height = size * dpi;
+        ctx.scale(dpi, dpi);
+        
+        // Kullanıcı arka planı varsa onu kullan
+        if (userBackground) {
+            const img = new Image();
+            img.onload = function() {
+                // Arka plan görselini çiz
+                ctx.drawImage(img, 0, 0, size, size);
+                
+                // Koyu overlay ekle
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+                ctx.fillRect(0, 0, size, size);
+                
+                // Metinleri çiz
+                drawTexts(ctx, size);
+                
+                // İndirme işlemini burada yap
+                downloadCanvas(canvas);
+            };
+            img.src = userBackground;
+        } else {
+            // Varsayılan gradient arka plan
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Metinleri çiz
+            drawTexts(ctx, size);
+            
+            // İndirme işlemini burada yap
+            downloadCanvas(canvas);
         }
     }
 
+    // Canvas'ı indir
+    function downloadCanvas(canvas) {
+        // Türkçe metni dosya adı olarak kullan
+        const turkishText = document.getElementById('turkishText').textContent;
+        const fileName = turkishText
+            .replace(/[^\w\s]/gi, '') // Özel karakterleri kaldır
+            .replace(/\s+/g, '-') // Boşlukları tire ile değiştir
+            .substring(0, 50) // Maksimum 50 karakter
+            .toLowerCase();
+        
+        // İndirme linkini oluştur - Instagram için optimize edilmiş
+        const link = document.createElement('a');
+        link.download = fileName || 'islami-post';
+        
+        // Instagram için JPEG formatı (daha iyi uyumluluk)
+        link.href = canvas.toDataURL('image/jpeg', 0.95); // Yüksek kalite JPEG
+        link.click();
+    }
+
+    // Metinleri çiz
+    function drawTexts(ctx, size) {
+        const activeAlign = document.querySelector('.align-btn.active');
+        const textAlign = activeAlign ? activeAlign.dataset.align : 'center';
+        
+        ctx.textAlign = textAlign;
+        ctx.textBaseline = 'middle';
+        
+        // Metin kalitesini artır
+        ctx.textRenderingOptimization = 'optimizeQuality';
+        
+        // Arapça metin
+        const arabicText = document.getElementById('arabicText');
+        const arabicSize = document.getElementById('arabicSize');
+        const arabicColor = document.getElementById('arabicColor');
+        
+        ctx.fillStyle = arabicColor.value;
+        ctx.font = `bold ${arabicSize.value * 2}px Amiri, serif`;
+        
+        const arabicLines = wrapText(ctx, arabicText.textContent, size - 100);
+        const arabicY = (size / 2) - (arabicLines.length * arabicSize.value);
+        
+        arabicLines.forEach((line, index) => {
+            ctx.fillText(line, size / 2, arabicY + (index * arabicSize.value * 2.5));
+        });
+        
+        // Türkçe metin
+        const turkishText = document.getElementById('turkishText');
+        const turkishSize = document.getElementById('turkishSize');
+        const turkishColor = document.getElementById('turkishColor');
+        
+        ctx.fillStyle = turkishColor.value;
+        ctx.font = `${turkishSize.value * 2}px Poppins, sans-serif`;
+        
+        const turkishLines = wrapText(ctx, turkishText.textContent, size - 100);
+        const turkishY = (size / 2) + 50;
+        
+        turkishLines.forEach((line, index) => {
+            ctx.fillText(line, size / 2, turkishY + (index * turkishSize.value * 2));
+        });
+        
+        // Watermark ekle - kalbimizdeiman
+        drawWatermark(ctx, size);
+    }
+
+    // Watermark çiz
+    function drawWatermark(ctx, size) {
+        // Watermark ayarları
+        const watermarkText = '@kalbimizdeiman';
+        const fontSize = Math.max(16, size * 0.02); // Boyuta göre ayarlanabilir font boyutu
+        
+        // Watermark pozisyonu (sağ alt köşe)
+        const x = size - 20;
+        const y = size - 20;
+        
+        // Watermark stili
+        ctx.save();
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'bottom';
+        ctx.font = `bold ${fontSize}px Poppins, sans-serif`;
+        
+        // Gölge efekti
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+        ctx.fillText(watermarkText, x + 1, y + 1);
+        
+        // Ana watermark - sarı renk (önizlemedeki gibi)
+        ctx.fillStyle = '#ffd700'; // Altın sarı renk
+        ctx.fillText(watermarkText, x, y);
+        
+        ctx.restore();
+    }
+
+    // Metni satırlara böl
+    function wrapText(ctx, text, maxWidth) {
+        const words = text.split(' ');
+        const lines = [];
+        let currentLine = words[0];
+        
+        for (let i = 1; i < words.length; i++) {
+            const word = words[i];
+            const width = ctx.measureText(currentLine + ' ' + word).width;
+            if (width < maxWidth) {
+                currentLine += ' ' + word;
+            } else {
+                lines.push(currentLine);
+                currentLine = word;
+            }
+        }
+        lines.push(currentLine);
+        return lines;
+    }
+
+    // Post'u paylaş
+    function sharePost() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'İslami Instagram Post',
+                text: `${arabicText.textContent}\n\n${turkishText.textContent}`,
+                url: window.location.href
+            });
+        } else {
+            // Fallback: metni panoya kopyala
+            const textToShare = `${arabicText.textContent}\n\n${turkishText.textContent}`;
+            navigator.clipboard.writeText(textToShare).then(() => {
+                alert('Metin panoya kopyalandı!');
+            });
+        }
+    }
+
+    // Tam ekran aç
+    function openFullscreen() {
+        if (fullscreenModal && fullscreenPreview) {
+            fullscreenPreview.innerHTML = postCanvas.outerHTML;
+            fullscreenModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Tam ekran kapat
     function closeFullscreenModal() {
         if (fullscreenModal) {
             fullscreenModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
     }
 
+    // Arama fonksiyonu
     function handleSearch() {
-        // Arama fonksiyonu
+        const searchTerm = contentSearch.value.toLowerCase().trim();
+        
+        if (searchTerm.length < 2) {
+            hideSearchResults();
+            return;
+        }
+        
+        const results = searchContent(searchTerm);
+        displaySearchResults(results);
     }
 
+    // İçerik arama
+    function searchContent(searchTerm) {
+        const results = [];
+        
+        Object.keys(islamicContent).forEach(category => {
+            islamicContent[category].forEach((item, index) => {
+                const arabicMatch = item.arabic.toLowerCase().includes(searchTerm);
+                const turkishMatch = item.turkish.toLowerCase().includes(searchTerm);
+                
+                if (arabicMatch || turkishMatch) {
+                    results.push({
+                        ...item,
+                        category: category,
+                        index: index
+                    });
+                }
+            });
+        });
+        
+        return results.slice(0, 10); // Maksimum 10 sonuç
+    }
+
+    // Arama sonuçlarını göster
+    function displaySearchResults(results) {
+        if (results.length === 0) {
+            hideSearchResults();
+            return;
+        }
+        
+        if (searchResults) {
+            searchResults.innerHTML = '';
+            
+            results.forEach(result => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.innerHTML = `
+                    <div class="search-result-category">${getCategoryName(result.category)}</div>
+                    <div class="search-result-arabic">${result.arabic}</div>
+                    <div class="search-result-turkish">${result.turkish}</div>
+                `;
+                
+                resultItem.addEventListener('click', () => {
+                    selectSearchResult(result);
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+            
+            searchResults.style.display = 'block';
+            if (clearSearch) clearSearch.style.display = 'flex';
+        }
+    }
+
+    // Arama sonuçlarını gizle
+    function hideSearchResults() {
+        if (searchResults) searchResults.style.display = 'none';
+        if (clearSearch) clearSearch.style.display = 'none';
+    }
+
+    // Arama sonucu seç
+    function selectSearchResult(result) {
+        if (arabicText) arabicText.textContent = result.arabic;
+        if (turkishText) turkishText.textContent = result.turkish;
+        if (contentSelect) contentSelect.value = result.category;
+        
+        // Arama sonuçlarını temizle
+        if (contentSearch) contentSearch.value = '';
+        hideSearchResults();
+    }
+
+    // Arama sonuçlarını temizle
     function clearSearchResults() {
-        // Arama temizleme
+        if (contentSearch) contentSearch.value = '';
+        hideSearchResults();
     }
 
+    // Kategori adını al
+    function getCategoryName(category) {
+        const names = {
+            'dua': 'Dua',
+            'hadis': 'Hadis',
+            'ayet': 'Ayet',
+            'zikir': 'Zikir'
+        };
+        return names[category] || category;
+    }
+
+    // Mevcut içerik için hashtag'leri göster
     function showHashtagsForCurrentContent() {
-        alert('Hashtag özelliği aktif!');
+        const turkishText = document.getElementById('turkishText').textContent;
+        showHashtags(turkishText);
     }
 
+    // Mevcut içerik için açıklama göster
     function showDescriptionForCurrentContent() {
-        alert('Açıklama özelliği aktif!');
+        const arabicText = document.getElementById('arabicText').textContent;
+        const turkishText = document.getElementById('turkishText').textContent;
+        const category = document.getElementById('contentSelect').value;
+        showDescription(arabicText, turkishText, category);
+    }
+
+    // Hashtag'leri oluştur ve göster
+    function showHashtags(turkishText) {
+        const hashtags = generateHashtags(turkishText);
+        
+        // Hashtag modal'ını oluştur
+        const modal = document.createElement('div');
+        modal.className = 'hashtag-modal';
+        modal.innerHTML = `
+            <div class="hashtag-content">
+                <div class="hashtag-header">
+                    <h3><i class="fas fa-hashtag"></i> Instagram Hashtag'leri</h3>
+                    <button class="close-hashtag" onclick="this.parentElement.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="hashtag-body">
+                    <p class="hashtag-instruction">Bu hashtag'leri kopyalayıp Instagram'da kullanabilirsiniz:</p>
+                    <div class="hashtag-list">
+                        ${hashtags.map(tag => `<span class="hashtag-item">${tag}</span>`).join('')}
+                    </div>
+                    <button class="copy-hashtags" onclick="copyHashtags()">
+                        <i class="fas fa-copy"></i> Tümünü Kopyala
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Kopyalama fonksiyonunu global yap
+        window.copyHashtags = function() {
+            const hashtagText = hashtags.join(' ');
+            navigator.clipboard.writeText(hashtagText).then(() => {
+                alert('Hashtag\'ler kopyalandı!');
+            });
+        };
+    }
+
+    // Hashtag'leri oluştur
+    function generateHashtags(turkishText) {
+        // Tüm mevcut hashtag'ler
+        const allHashtags = [
+            // Genel İslami
+            '#islam', '#muslim', '#allah', '#muhammad', '#quran', '#hadith',
+            '#deen', '#iman', '#taqwa', '#sunnah', '#islamic', '#islamicquotes',
+            '#islamicpost', '#islamicart', '#islamiccalligraphy', '#islamicremembrance',
+            
+            // Dua ve İbadet
+            '#dua', '#prayer', '#supplication', '#islamicprayer', '#dhikr', '#remembrance',
+            '#tasbih', '#subhanallah', '#alhamdulillah', '#bismillah', '#besmele',
+            '#mashallah', '#inshallah', '#barakallahu', '#jazakallahu',
+            
+            // Kuran ve Hadis
+            '#quranicverses', '#holyquran', '#prophetmuhammad', '#sahih', '#authentic',
+            '#quranrecitation', '#tilawah', '#memorization', '#hifz',
+            
+            // İslami Yaşam
+            '#ramadan', '#hajj', '#umrah', '#masjid', '#mosque', '#kaaba', '#madinah',
+            '#makkah', '#jerusalem', '#alquds', '#palestine', '#ummah', '#brotherhood',
+            
+            // İslami Değerler
+            '#patience', '#sabr', '#gratitude', '#shukr', '#forgiveness', '#mercy',
+            '#compassion', '#kindness', '#charity', '#zakat', '#sadaqah', '#gooddeeds',
+            
+            // İslami Eğitim
+            '#islamiceducation', '#islamicstudies', '#islamiclearning', '#islamicwisdom',
+            '#islamicteachings', '#islamicguidance', '#islamicinspiration',
+            
+            // İslami Sanat
+            '#islamicdesign', '#islamicpattern', '#islamicgeometry', '#islamicarchitecture',
+            '#islamiccalligraphy', '#islamicartwork', '#islamicbeauty',
+            
+            // İslami Topluluk
+            '#islamiccommunity', '#islamicbrotherhood', '#islamicunity', '#islamiclove',
+            '#islamicpeace', '#islamicharmony', '#islamicfamily', '#islamicmarriage',
+            
+            // İslami Motivasyon
+            '#islamicmotivation', '#islamicinspiration', '#islamicwisdom', '#islamicquotes',
+            '#islamicreminder', '#islamicreflection', '#islamicmeditation', '#islamicmindfulness',
+            
+            // Sayfa reklamı hashtag'leri
+            '#kalbimizdeiman', '#kalbimizdeimanpage', '#kalbimizdeimanquotes', '#kalbimizdeimanposts',
+            '#kalbimizdeimanislamic', '#kalbimizdeimancontent', '#kalbimizdeimanart', '#kalbimizdeimanreminder'
+        ];
+        
+        // İçeriğe göre özel hashtag'ler
+        const contentHashtags = [];
+        
+        if (turkishText.toLowerCase().includes('besmele') || turkishText.toLowerCase().includes('bismillah')) {
+            contentHashtags.push('#bismillah', '#besmele', '#islamicquotes', '#islamicreminder');
+        }
+        
+        if (turkishText.toLowerCase().includes('dua') || turkishText.toLowerCase().includes('prayer')) {
+            contentHashtags.push('#dua', '#prayer', '#supplication', '#islamicprayer', '#dhikr');
+        }
+        
+        if (turkishText.toLowerCase().includes('hadis') || turkishText.toLowerCase().includes('hadith')) {
+            contentHashtags.push('#hadith', '#sunnah', '#prophetmuhammad', '#islamicquotes', '#authentic');
+        }
+        
+        if (turkishText.toLowerCase().includes('ayet') || turkishText.toLowerCase().includes('verse')) {
+            contentHashtags.push('#quran', '#quranicverses', '#holyquran', '#islamicquotes', '#tilawah');
+        }
+        
+        if (turkishText.toLowerCase().includes('zikir') || turkishText.toLowerCase().includes('dhikr')) {
+            contentHashtags.push('#dhikr', '#remembrance', '#tasbih', '#islamicremembrance', '#subhanallah');
+        }
+        
+        // Rastgele hashtag'ler seç (her foto için farklı)
+        const shuffled = [...allHashtags].sort(() => 0.5 - Math.random());
+        
+        // Sayfa reklamı hashtag'lerini her zaman dahil et
+        const brandingHashtags = ['#kalbimizdeiman', '#kalbimizdeimanpage'];
+        const selectedHashtags = [...brandingHashtags, ...contentHashtags, ...shuffled.slice(0, 18)];
+        
+        // Benzersiz yap ve maksimum 25 hashtag döndür
+        const uniqueHashtags = [...new Set(selectedHashtags)];
+        return uniqueHashtags.slice(0, 25);
+    }
+
+    // Açıklama oluştur ve göster
+    function showDescription(arabicText, turkishText, category) {
+        const description = generateDescription(arabicText, turkishText, category);
+        
+        // Açıklama modal'ını oluştur
+        const modal = document.createElement('div');
+        modal.className = 'hashtag-modal'; // Aynı stil kullan
+        modal.innerHTML = `
+            <div class="hashtag-content">
+                <div class="hashtag-header">
+                    <h3><i class="fas fa-file-text"></i> Instagram Açıklaması</h3>
+                    <button class="close-hashtag" onclick="this.parentElement.parentElement.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="hashtag-body">
+                    <p class="hashtag-instruction">Bu açıklamayı kopyalayıp Instagram'da kullanabilirsiniz:</p>
+                    <div class="description-text">
+                        ${description}
+                    </div>
+                    <button class="copy-hashtags" onclick="copyDescription()">
+                        <i class="fas fa-copy"></i> Açıklamayı Kopyala
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Kopyalama fonksiyonunu global yap
+        window.copyDescription = function() {
+            navigator.clipboard.writeText(description).then(() => {
+                alert('Açıklama kopyalandı!');
+            });
+        };
+    }
+
+    // Açıklama oluştur
+    function generateDescription(arabicText, turkishText, category) {
+        const categoryNames = {
+            'dua': 'Dua',
+            'hadis': 'Hadis',
+            'ayet': 'Ayet',
+            'zikir': 'Zikir'
+        };
+        
+        const categoryName = categoryNames[category] || 'İslami İçerik';
+        
+        // Açıklama şablonları (hashtag'siz)
+        const descriptions = [
+            `🕌 ${categoryName} Paylaşımı\n\n${turkishText}\n\n✨ Bu güzel ${categoryName.toLowerCase()} ile gününüzü bereketli kılın.\n\n📱 @kalbimizdeiman sayfasından daha fazla İslami içerik için takip edin!`,
+            
+            `📖 ${categoryName}\n\n${turkishText}\n\n💫 Allah'ın rahmeti ve bereketi üzerinize olsun.\n\n🕌 @kalbimizdeiman - Kalbinizde iman, hayatınızda huzur`,
+            
+            `🕯️ ${categoryName} Paylaşımı\n\n${turkishText}\n\n🌟 Bu güzel sözlerle kalbinizi huzurla doldurun.\n\n📱 @kalbimizdeiman sayfasından ilham alın!`,
+            
+            `📿 ${categoryName}\n\n${turkishText}\n\n🙏 Allah'ın sevgisi ve rahmeti hepimizin üzerine olsun.\n\n🕌 @kalbimizdeiman - İslami içeriklerle dolu sayfa`
+        ];
+        
+        // Rastgele bir açıklama seç
+        const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
+        
+        return randomDescription;
     }
 
     function setupBackgroundUpload() {
