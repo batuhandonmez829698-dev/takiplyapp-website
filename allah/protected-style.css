@@ -108,6 +108,15 @@ body {
 
 /* Main Layout */
 .app-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Content Container */
+.content-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -898,7 +907,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .app-main {
+    .content-container {
         grid-template-columns: 1fr;
         gap: 25px;
     }
