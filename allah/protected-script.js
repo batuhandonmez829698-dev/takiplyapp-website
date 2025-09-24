@@ -177,6 +177,7 @@ function loadMainScript() {
         // DOM elementlerini burada seç
         initializeDOMElements();
         setupEventListeners();
+        setupModeSwitching();
         loadDefaultContent();
         updateSizeDisplays();
     });
@@ -348,8 +349,19 @@ function loadMainScript() {
         }
     }
 
-    // Post'u indir
+    // Post'u indir (mode'a göre)
     function downloadPost() {
+        const activeMode = document.querySelector('.mode-btn.active').dataset.mode;
+        
+        if (activeMode === 'story') {
+            downloadStory();
+        } else {
+            downloadPostImage();
+        }
+    }
+
+    // Post görselini indir
+    function downloadPostImage() {
         // Canvas oluştur - Instagram için optimize edilmiş
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
@@ -845,6 +857,136 @@ function loadMainScript() {
         const randomDescription = descriptions[Math.floor(Math.random() * descriptions.length)];
         
         return randomDescription;
+    }
+
+    // Mode switching fonksiyonu
+    function setupModeSwitching() {
+        const modeButtons = document.querySelectorAll('.mode-btn');
+        const postPreview = document.getElementById('postPreview');
+        const storyPreview = document.getElementById('storyPreview');
+        
+        modeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Tüm butonlardan active class'ını kaldır
+                modeButtons.forEach(btn => btn.classList.remove('active'));
+                // Tıklanan butona active class'ını ekle
+                this.classList.add('active');
+                
+                const mode = this.dataset.mode;
+                
+                if (mode === 'post') {
+                    postPreview.style.display = 'block';
+                    storyPreview.style.display = 'none';
+                } else if (mode === 'story') {
+                    postPreview.style.display = 'none';
+                    storyPreview.style.display = 'block';
+                    updateStoryPreview();
+                }
+            });
+        });
+    }
+
+    // Story preview'ı güncelle
+    function updateStoryPreview() {
+        if (arabicText && turkishText && contentSelect) {
+            const storyArabic = document.getElementById('storyArabic');
+            const storyTurkish = document.getElementById('storyTurkish');
+            const storyCategory = document.getElementById('storyCategory');
+            const storyHashtags = document.getElementById('storyHashtags');
+            
+            if (storyArabic) storyArabic.textContent = arabicText.textContent;
+            if (storyTurkish) storyTurkish.textContent = turkishText.textContent;
+            if (storyCategory) storyCategory.textContent = getCategoryName(contentSelect.value);
+            if (storyHashtags) {
+                const hashtags = generateHashtags(turkishText.textContent);
+                storyHashtags.textContent = hashtags.slice(0, 5).join(' ');
+            }
+        }
+    }
+
+    // Story indirme fonksiyonu
+    function downloadStory() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Instagram Story boyutu (9:16 oran)
+        const width = 1080;
+        const height = 1920;
+        canvas.width = width;
+        canvas.height = height;
+        
+        // Canvas kalitesini artır
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        
+        // DPI ayarı
+        const dpi = 2;
+        canvas.width = width * dpi;
+        canvas.height = height * dpi;
+        ctx.scale(dpi, dpi);
+        
+        // Arka plan
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0, '#667eea');
+        gradient.addColorStop(1, '#764ba2');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+        
+        // Story içeriğini çiz
+        drawStoryContent(ctx, width, height);
+        
+        // İndirme
+        const link = document.createElement('a');
+        link.download = 'islami-story.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+    }
+
+    // Story içeriğini çiz
+    function drawStoryContent(ctx, width, height) {
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Kategori
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = 'bold 32px Poppins, sans-serif';
+        ctx.fillText(getCategoryName(contentSelect.value), width / 2, height * 0.2);
+        
+        // Arapça metin
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 40px Amiri, serif';
+        const arabicLines = wrapText(ctx, arabicText.textContent, width - 100);
+        const arabicY = height * 0.4;
+        arabicLines.forEach((line, index) => {
+            ctx.fillText(line, width / 2, arabicY + (index * 50));
+        });
+        
+        // Türkçe metin
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = '24px Poppins, sans-serif';
+        const turkishLines = wrapText(ctx, turkishText.textContent, width - 100);
+        const turkishY = height * 0.6;
+        turkishLines.forEach((line, index) => {
+            ctx.fillText(line, width / 2, turkishY + (index * 30));
+        });
+        
+        // Hashtag'ler
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.font = '20px Poppins, sans-serif';
+        const hashtags = generateHashtags(turkishText.textContent);
+        const hashtagText = hashtags.slice(0, 5).join(' ');
+        ctx.fillText(hashtagText, width / 2, height * 0.8);
+        
+        // Username
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = 'bold 24px Poppins, sans-serif';
+        ctx.fillText('@kalbimizdeiman', width / 2, height * 0.9);
+        
+        // Watermark
+        ctx.fillStyle = '#ffd700';
+        ctx.font = 'bold 20px Poppins, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText('@kalbimizdeiman', width - 20, height - 20);
     }
 
     function setupBackgroundUpload() {

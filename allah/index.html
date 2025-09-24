@@ -44,26 +44,21 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
-        <header class="app-header">
-                <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-mosque"></i>
-                    <h1>İslami Post Oluşturucu</h1>
-                </div>
-                <p class="header-subtitle">Hadis, dua ve ayetlerle güzel postlar oluşturun</p>
-                <div class="header-links">
-                    <a href="story.html" class="story-link">
-                        <i class="fas fa-mobile-alt"></i> Story Üretici
-                    </a>
-                </div>
-            </div>
-        </header>
 
         <!-- Main Content -->
         <div class="app-main">
+            <!-- Mode Selection -->
+            <div class="mode-selection">
+                <button class="mode-btn active" data-mode="post">
+                    <i class="fas fa-camera"></i> Post Oluştur
+                </button>
+                <button class="mode-btn" data-mode="story">
+                    <i class="fas fa-mobile-alt"></i> Story Oluştur
+                </button>
+            </div>
+
             <!-- Post Preview Section -->
-            <div class="preview-section">
+            <div class="preview-section" id="postPreview">
                 <div class="preview-header">
                     <h3><i class="fas fa-eye"></i> Önizleme</h3>
                     <div class="preview-actions">
@@ -81,6 +76,31 @@
                             <div class="turkish-text" id="turkishText">Rahman ve Rahim olan Allah'ın adıyla</div>
                         </div>
                         <div class="post-watermark">@kalbimizdeiman</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Preview Section -->
+            <div class="preview-section" id="storyPreview" style="display: none;">
+                <div class="preview-header">
+                    <h3><i class="fas fa-mobile-alt"></i> Story Önizleme</h3>
+                    <div class="preview-actions">
+                        <button id="storyFullscreenBtn" class="btn-icon" title="Tam Ekran">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="story-preview-container">
+                    <div class="story-canvas" id="storyCanvas">
+                        <div class="story-content">
+                            <div class="story-category" id="storyCategory">Dua</div>
+                            <div class="story-arabic" id="storyArabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                            <div class="story-turkish" id="storyTurkish">Rahman ve Rahim olan Allah'ın adıyla</div>
+                            <div class="story-hashtags" id="storyHashtags">#islam #dua #allah</div>
+                            <div class="story-username">@kalbimizdeiman</div>
+                            <div class="story-watermark">@kalbimizdeiman</div>
+                        </div>
                     </div>
                 </div>
             </div>
